@@ -1407,7 +1407,7 @@ window.addEventListener('scroll', () => {
 // Form submit
 document.querySelector('.form-submit').addEventListener('click', function(e) {
   e.preventDefault();
-  const name = document.querySelector('input[placeholder="Dr. Shalini Patlolla"]').value;
+  const name = document.querySelector('input[placeholder="Dr.Name"]').value;
   const clinic = document.querySelector('input[placeholder="City Diabetes Clinic"]').value;
   const msg = `Hi Rishikesh, I want to book a free demo for my clinic.%0A%0AName: ${name}%0AClinic: ${clinic}`;
   window.open(`https://wa.me/918341371690?text=${msg}`, '_blank');
