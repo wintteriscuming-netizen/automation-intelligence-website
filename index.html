@@ -3,24 +3,32 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Automation Intelligence — WhatsApp AI Automation for Clinics</title>
-<link rel="icon" type="image/png" href="favicon.png" />
+<title>Automation Intelligence — Conversational Engineering for Clinics</title>
+<link rel="icon" type="image/png" href="LOGO.png" />
 <meta name="description" content="Automation Intelligence builds WhatsApp AI automation systems for clinics in Hyderabad. Appointment booking, reminders, follow-ups, Google reviews — all automated 24/7.">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<meta property="og:title" content="Automation Intelligence — WhatsApp AI Automation for Clinics">
+<meta property="og:description" content="Conversational engineering for high-value clinics. WhatsApp AI automation running 24/7.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://automationintelligence.in/">
+<meta property="og:image" content="https://automationintelligence.in/og-image.png">
+
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --black: #080c0a;
-  --dark: #0d1510;
-  --green-deep: #0a2e14;
-  --green-dark: #1B5E20;
-  --green-mid: #2E7D32;
-  --green: #4CAF50;
-  --green-light: #81C784;
-  --gold: #D4AF37;
-  --gold-light: #F0D060;
-  --white: #f8faf8;
-  --gray: #8a9e8c;
-  --border: rgba(76,175,80,0.15);
+  --bg: #F5F2EB;
+  --bg-alt: #EDE9E0;
+  --bg-card: #FDFBF7;
+  --red: #8B1A1A;
+  --red-light: #A63232;
+  --brown: #5C4033;
+  --brown-light: #7A6258;
+  --text: #1A1A1A;
+  --text-muted: #6B6560;
+  --text-light: #9A9590;
+  --border: rgba(26,26,26,0.12);
+  --border-strong: rgba(26,26,26,0.25);
+  --line: rgba(26,26,26,0.08);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -28,21 +36,49 @@
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'Outfit', sans-serif;
-  background: var(--black);
-  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* ─── NOISE TEXTURE OVERLAY ─── */
+/* ─── ARCHITECTURAL GRID BACKGROUND ─── */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  background-image: 
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 80px 80px;
   pointer-events: none;
-  z-index: 1000;
+  z-index: 0;
+}
+
+/* ─── CROSSHAIR DECORATION ─── */
+.cross::before,
+.cross::after {
+  content: '+';
+  position: absolute;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  color: var(--text-light);
   opacity: 0.4;
+  line-height: 1;
+}
+.cross::before { top: -9px; left: -9px; }
+.cross::after { bottom: -9px; right: -9px; }
+
+/* ─── CIRCUIT DOT ─── */
+.circuit-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--red);
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 3px rgba(139,26,26,0.15);
 }
 
 /* ─── NAVBAR ─── */
@@ -52,53 +88,109 @@ nav {
   left: 0;
   right: 0;
   z-index: 100;
-  padding: 20px 60px;
+  padding: 16px 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   backdrop-filter: blur(20px);
-  background: rgba(8,12,10,0.8);
+  background: rgba(245,242,235,0.9);
   border-bottom: 1px solid var(--border);
   transition: all 0.3s ease;
 }
 
 .nav-logo {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 22px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 16px;
   font-weight: 600;
-  color: var(--white);
-  letter-spacing: 1px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  line-height: 1.2;
 }
 
-.nav-logo span { color: var(--green); }
+.nav-logo .red { color: var(--red); }
+.nav-logo .brown { color: var(--brown); }
 
 .nav-links {
   display: flex;
-  gap: 40px;
+  gap: 36px;
   list-style: none;
+  align-items: center;
 }
 
 .nav-links a {
-  color: var(--gray);
+  color: var(--text-muted);
   text-decoration: none;
-  font-size: 14px;
-  font-weight: 400;
-  letter-spacing: 0.5px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
   transition: color 0.3s;
 }
 
-.nav-links a:hover { color: var(--white); }
+.nav-links a:hover { color: var(--text); }
 
 .nav-cta {
-  background: var(--green-dark);
-  color: var(--white) !important;
-  padding: 10px 24px;
-  border-radius: 4px;
-  font-weight: 500 !important;
-  transition: background 0.3s !important;
+  background: var(--text) !important;
+  color: var(--bg) !important;
+  padding: 10px 24px !important;
+  border-radius: 0 !important;
+  font-weight: 600 !important;
+  letter-spacing: 1.5px !important;
 }
 
-.nav-cta:hover { background: var(--green-mid) !important; color: var(--white) !important; }
+.nav-cta:hover { background: var(--red) !important; color: white !important; }
+
+/* ─── HAMBURGER ─── */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 110;
+}
+
+.nav-hamburger span {
+  width: 24px;
+  height: 1.5px;
+  background: var(--text);
+  transition: all 0.3s;
+}
+
+.nav-hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.nav-hamburger.active span:nth-child(2) { opacity: 0; }
+.nav-hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+/* ─── MOBILE MENU ─── */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(245,242,235,0.98);
+  z-index: 105;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.mobile-menu.open { opacity: 1; pointer-events: all; }
+
+.mobile-menu a {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 24px;
+  color: var(--text-muted);
+  text-decoration: none;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.mobile-menu a:hover { color: var(--red); }
 
 /* ─── HERO ─── */
 .hero {
@@ -107,132 +199,101 @@ nav {
   align-items: center;
   position: relative;
   overflow: hidden;
-  padding: 120px 60px 80px;
-}
-
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse 80% 60% at 60% 40%, rgba(27,94,32,0.25) 0%, transparent 70%),
-              radial-gradient(ellipse 40% 40% at 10% 80%, rgba(76,175,80,0.08) 0%, transparent 60%),
-              linear-gradient(180deg, var(--black) 0%, var(--dark) 100%);
-}
-
-.hero-grid {
-  position: absolute;
-  inset: 0;
-  background-image: 
-    linear-gradient(rgba(76,175,80,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(76,175,80,0.04) 1px, transparent 1px);
-  background-size: 60px 60px;
+  padding: 140px 60px 100px;
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 700px;
+  max-width: 680px;
 }
 
 .hero-badge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  background: rgba(76,175,80,0.1);
-  border: 1px solid rgba(76,175,80,0.3);
-  padding: 6px 16px;
-  border-radius: 20px;
-  font-size: 12px;
-  color: var(--green-light);
-  letter-spacing: 1px;
+  gap: 10px;
+  font-size: 10px;
+  letter-spacing: 4px;
   text-transform: uppercase;
-  margin-bottom: 32px;
-  animation: fadeUp 0.8s ease both;
+  color: var(--text-muted);
+  margin-bottom: 40px;
+  font-weight: 500;
 }
 
-.hero-badge::before {
-  content: '';
-  width: 6px;
-  height: 6px;
-  background: var(--green);
-  border-radius: 50%;
-  animation: pulse 2s infinite;
-}
+.hero-badge .circuit-dot { animation: pulse 2s infinite; }
 
 @keyframes pulse {
   0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(1.3); }
+  50% { opacity: 0.5; transform: scale(1.4); }
 }
 
 .hero h1 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(52px, 7vw, 90px);
-  font-weight: 500;
-  line-height: 1.0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(40px, 6vw, 72px);
+  font-weight: 600;
+  line-height: 1.05;
   letter-spacing: -1px;
-  margin-bottom: 28px;
-  animation: fadeUp 0.8s ease 0.1s both;
+  margin-bottom: 32px;
 }
 
-.hero h1 em {
-  font-style: italic;
-  color: var(--green-light);
-}
-
-.hero h1 .gold { color: var(--gold); }
+.hero h1 .red { color: var(--red); }
+.hero h1 .brown { color: var(--brown); }
 
 .hero p {
-  font-size: 18px;
-  color: var(--gray);
-  line-height: 1.7;
-  max-width: 540px;
+  font-size: 16px;
+  color: var(--text-muted);
+  line-height: 1.8;
+  max-width: 480px;
   margin-bottom: 48px;
-  font-weight: 300;
-  animation: fadeUp 0.8s ease 0.2s both;
+  font-weight: 400;
 }
 
 .hero-actions {
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
-  animation: fadeUp 0.8s ease 0.3s both;
 }
 
 .btn-primary {
-  background: var(--green-dark);
-  color: white;
+  background: var(--text);
+  color: var(--bg);
   padding: 16px 36px;
-  border-radius: 4px;
-  font-size: 15px;
-  font-weight: 500;
+  font-size: 11px;
+  font-weight: 600;
   text-decoration: none;
   border: none;
   cursor: pointer;
   transition: all 0.3s;
-  letter-spacing: 0.3px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .btn-primary:hover {
-  background: var(--green-mid);
+  background: var(--red);
+  color: white;
   transform: translateY(-2px);
-  box-shadow: 0 12px 40px rgba(76,175,80,0.25);
 }
 
 .btn-secondary {
   background: transparent;
-  color: var(--gray);
+  color: var(--text-muted);
   padding: 16px 36px;
-  border-radius: 4px;
-  font-size: 15px;
-  font-weight: 400;
+  font-size: 11px;
+  font-weight: 600;
   text-decoration: none;
-  border: 1px solid rgba(255,255,255,0.1);
+  border: 1px solid var(--border-strong);
   cursor: pointer;
   transition: all 0.3s;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 .btn-secondary:hover {
-  border-color: rgba(255,255,255,0.3);
-  color: var(--white);
+  border-color: var(--text);
+  color: var(--text);
 }
 
 .hero-visual {
@@ -240,67 +301,74 @@ nav {
   right: 60px;
   top: 50%;
   transform: translateY(-50%);
-  width: 420px;
-  animation: fadeUp 0.8s ease 0.4s both;
+  width: 400px;
 }
 
 .chat-mockup {
-  background: #1a1f1a;
-  border-radius: 20px;
-  border: 1px solid var(--border);
+  background: var(--bg-card);
+  border: 1px solid var(--border-strong);
   overflow: hidden;
-  box-shadow: 0 40px 120px rgba(0,0,0,0.6), 0 0 0 1px rgba(76,175,80,0.1);
+  position: relative;
+}
+
+.chat-mockup::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--red);
 }
 
 .chat-header {
-  background: #25D366;
+  background: var(--bg-alt);
   padding: 16px 20px;
   display: flex;
   align-items: center;
   gap: 12px;
+  border-bottom: 1px solid var(--border);
 }
 
 .chat-avatar {
-  width: 40px;
-  height: 40px;
-  background: rgba(255,255,255,0.2);
-  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  background: var(--red);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
+  font-size: 14px;
+  color: white;
 }
 
-.chat-name { font-weight: 600; font-size: 15px; color: white; }
-.chat-status { font-size: 12px; color: rgba(255,255,255,0.8); }
+.chat-name { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--text); }
+.chat-status { font-size: 11px; color: var(--text-light); }
 
 .chat-body { padding: 20px; display: flex; flex-direction: column; gap: 12px; }
 
 .chat-msg {
   max-width: 85%;
-  padding: 10px 14px;
-  border-radius: 12px;
+  padding: 12px 16px;
   font-size: 13px;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .chat-msg.bot {
-  background: #2a2f2a;
-  border-radius: 0 12px 12px 12px;
-  color: var(--white);
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  color: var(--text);
   align-self: flex-start;
 }
 
 .chat-msg.user {
-  background: #1B5E20;
-  border-radius: 12px 12px 0 12px;
-  color: white;
+  background: var(--text);
+  color: var(--bg);
   align-self: flex-end;
 }
 
 .chat-msg .time {
   font-size: 10px;
-  color: var(--gray);
+  color: var(--text-light);
   margin-top: 4px;
   text-align: right;
 }
@@ -309,16 +377,16 @@ nav {
   display: flex;
   gap: 4px;
   align-items: center;
-  padding: 10px 14px;
-  background: #2a2f2a;
-  border-radius: 0 12px 12px 12px;
+  padding: 12px 16px;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
   width: fit-content;
 }
 
 .chat-typing span {
-  width: 6px;
-  height: 6px;
-  background: var(--gray);
+  width: 5px;
+  height: 5px;
+  background: var(--text-light);
   border-radius: 50%;
   animation: typing 1.2s infinite;
 }
@@ -333,148 +401,169 @@ nav {
 
 /* ─── STATS ─── */
 .stats {
-  padding: 60px;
+  padding: 48px 60px;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 40px;
-  background: rgba(13,21,16,0.5);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  background: var(--bg-card);
+  position: relative;
 }
 
-.stat-item { text-align: center; }
+.stat-item {
+  text-align: center;
+  padding: 24px;
+  position: relative;
+}
+
+.stat-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 20%;
+  height: 60%;
+  width: 1px;
+  background: var(--border);
+}
 
 .stat-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 52px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 44px;
   font-weight: 600;
-  color: var(--white);
+  color: var(--text);
   line-height: 1;
   margin-bottom: 8px;
 }
 
-.stat-num span { color: var(--green); }
-.stat-label { font-size: 13px; color: var(--gray); letter-spacing: 0.5px; }
+.stat-num span { color: var(--red); }
+
+.stat-label {
+  font-size: 10px;
+  color: var(--text-light);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
 
 /* ─── SECTION BASE ─── */
-section { padding: 100px 60px; }
+section { padding: 100px 60px; position: relative; }
 
 .section-label {
-  font-size: 11px;
-  letter-spacing: 3px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px;
+  letter-spacing: 4px;
   text-transform: uppercase;
-  color: var(--green);
+  color: var(--red);
   margin-bottom: 16px;
-  font-weight: 500;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-label::before {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--red);
 }
 
 .section-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(36px, 4vw, 56px);
-  font-weight: 500;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 600;
   line-height: 1.1;
   margin-bottom: 20px;
+  letter-spacing: -0.5px;
 }
 
-.section-title em { font-style: italic; color: var(--green-light); }
+.section-title .red { color: var(--red); }
+.section-title .brown { color: var(--brown); }
 
 .section-sub {
-  font-size: 16px;
-  color: var(--gray);
-  line-height: 1.7;
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.8;
   max-width: 520px;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 /* ─── SERVICES ─── */
-#services { background: var(--dark); }
+#services { background: var(--bg); }
 
 .services-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
+  gap: 1px;
   margin-top: 64px;
-  border: 2px solid var(--border);
-  border-radius: 12px;
-  overflow: hidden;
+  background: var(--border);
+  border: 1px solid var(--border);
 }
 
 .service-card {
-  background: var(--black);
-  padding: 48px 40px;
-  border: 1px solid var(--border);
-  transition: all 0.4s ease;
+  background: var(--bg-card);
+  padding: 40px 36px;
+  transition: all 0.3s ease;
   position: relative;
-  overflow: hidden;
 }
-
-.service-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--green), transparent);
-  opacity: 0;
-  transition: opacity 0.4s;
-}
-
-.service-card:hover::before { opacity: 1; }
 
 .service-card:hover {
-  background: rgba(27,94,32,0.08);
-  transform: translateY(-4px);
+  background: var(--bg-alt);
 }
 
-.service-icon {
-  font-size: 36px;
+.service-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: 24px;
-  display: block;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
 }
 
 .service-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 64px;
-  font-weight: 300;
-  color: rgba(76,175,80,0.1);
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  line-height: 1;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--red);
+  letter-spacing: 2px;
+}
+
+.service-icon {
+  font-size: 20px;
 }
 
 .service-card h3 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 24px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 18px;
   font-weight: 600;
-  margin-bottom: 16px;
-  color: var(--white);
+  margin-bottom: 12px;
+  color: var(--text);
+  letter-spacing: 0.5px;
 }
 
 .service-card p {
-  font-size: 14px;
-  color: var(--gray);
+  font-size: 13px;
+  color: var(--text-muted);
   line-height: 1.7;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .service-tag {
   display: inline-block;
-  background: rgba(76,175,80,0.1);
-  border: 1px solid rgba(76,175,80,0.2);
-  color: var(--green-light);
-  font-size: 11px;
+  border: 1px solid var(--border-strong);
+  color: var(--text-muted);
+  font-size: 9px;
   padding: 4px 12px;
-  border-radius: 20px;
   margin-top: 20px;
-  letter-spacing: 0.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 500;
 }
 
 /* ─── HOW IT WORKS ─── */
 #how {
-  background: var(--black);
-  position: relative;
+  background: var(--bg-card);
 }
 
 .how-grid {
@@ -490,7 +579,7 @@ section { padding: 100px 60px; }
 .step {
   display: flex;
   gap: 24px;
-  padding: 32px 0;
+  padding: 28px 0;
   border-bottom: 1px solid var(--border);
   position: relative;
 }
@@ -498,265 +587,180 @@ section { padding: 100px 60px; }
 .step:last-child { border-bottom: none; }
 
 .step-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 48px;
-  font-weight: 300;
-  color: var(--green-dark);
-  line-height: 1;
-  min-width: 60px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--red);
+  letter-spacing: 2px;
+  min-width: 30px;
+  padding-top: 2px;
 }
 
 .step-content h3 {
-  font-size: 18px;
-  font-weight: 500;
-  margin-bottom: 8px;
-  color: var(--white);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--text);
 }
 
 .step-content p {
-  font-size: 14px;
-  color: var(--gray);
+  font-size: 13px;
+  color: var(--text-muted);
   line-height: 1.7;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .how-visual {
-  background: var(--dark);
+  background: var(--bg);
   border: 1px solid var(--border);
-  border-radius: 16px;
   padding: 40px;
   position: relative;
+}
+
+.how-visual::before {
+  content: '+';
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 16px;
+  color: var(--text-light);
+  opacity: 0.4;
 }
 
 .timeline { display: flex; flex-direction: column; gap: 0; }
 
 .timeline-item {
   display: flex;
-  gap: 20px;
-  padding: 20px 0;
-  border-bottom: 1px solid rgba(76,175,80,0.08);
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
 }
 
 .timeline-item:last-child { border-bottom: none; }
 
 .timeline-dot {
-  width: 12px;
-  height: 12px;
-  background: var(--green);
+  width: 8px;
+  height: 8px;
+  background: var(--red);
   border-radius: 50%;
   margin-top: 4px;
   flex-shrink: 0;
-  box-shadow: 0 0 10px rgba(76,175,80,0.5);
+  box-shadow: 0 0 0 3px rgba(139,26,26,0.12);
 }
 
 .timeline-day {
-  font-size: 12px;
-  color: var(--green);
-  font-weight: 500;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px;
+  color: var(--red);
+  font-weight: 600;
   margin-bottom: 4px;
-  letter-spacing: 0.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
 }
 
 .timeline-task {
   font-size: 14px;
-  color: var(--white);
-  font-weight: 400;
+  color: var(--text);
+  font-weight: 500;
 }
 
 .timeline-sub {
   font-size: 12px;
-  color: var(--gray);
-  margin-top: 4px;
-}
-
-/* ─── PRICING ─── */
-#pricing {
-  background: var(--dark);
-}
-
-.pricing-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  margin-top: 64px;
-  max-width: 900px;
-}
-
-.pricing-card {
-  background: var(--black);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 48px 40px;
-  position: relative;
-  transition: all 0.4s;
-}
-
-.pricing-card:hover {
-  border-color: rgba(76,175,80,0.4);
-  transform: translateY(-4px);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-}
-
-.pricing-card.featured {
-  border-color: var(--green-dark);
-  background: linear-gradient(135deg, rgba(27,94,32,0.15) 0%, var(--black) 100%);
-}
-
-.pricing-badge {
-  position: absolute;
-  top: -12px;
-  left: 40px;
-  background: var(--green-dark);
-  color: white;
-  font-size: 11px;
-  padding: 4px 14px;
-  border-radius: 20px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  font-weight: 500;
-}
-
-.pricing-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 28px;
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-
-.pricing-tagline {
-  font-size: 13px;
-  color: var(--gray);
-  margin-bottom: 32px;
-  font-weight: 300;
-}
-
-.pricing-price {
-  margin-bottom: 32px;
-}
-
-.pricing-amount {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 56px;
-  font-weight: 600;
-  color: var(--white);
-  line-height: 1;
-}
-
-.pricing-currency {
-  font-size: 24px;
-  color: var(--gray);
-  vertical-align: super;
-  font-family: 'Outfit', sans-serif;
-  font-weight: 300;
-}
-
-.pricing-period {
-  font-size: 14px;
-  color: var(--gray);
-  margin-top: 4px;
-}
-
-.pricing-breakdown {
-  background: rgba(76,175,80,0.05);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 16px 20px;
-  margin-bottom: 32px;
-  font-size: 13px;
-  color: var(--gray);
-}
-
-.pricing-breakdown div { margin-bottom: 6px; display: flex; justify-content: space-between; }
-.pricing-breakdown div:last-child { margin-bottom: 0; color: var(--white); font-weight: 500; padding-top: 8px; border-top: 1px solid var(--border); }
-
-.pricing-features { list-style: none; margin-bottom: 40px; }
-
-.pricing-features li {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  padding: 10px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.04);
-  font-size: 14px;
-  color: var(--gray);
-  font-weight: 300;
-}
-
-.pricing-features li:last-child { border-bottom: none; }
-
-.pricing-features li::before {
-  content: '✓';
-  color: var(--green);
-  font-weight: 600;
-  flex-shrink: 0;
-  margin-top: 1px;
+  color: var(--text-light);
+  margin-top: 2px;
 }
 
 /* ─── ABOUT ─── */
 #about {
-  background: var(--black);
+  background: var(--text);
+  color: var(--bg);
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
   align-items: center;
 }
 
+#about .section-label { color: rgba(245,242,235,0.5); }
+#about .section-label::before { background: rgba(245,242,235,0.3); }
+
+#about .section-title { color: var(--bg); }
+#about .section-title .red { color: #D45555; }
+#about .section-title .brown { color: #C4A882; }
+
+#about .section-sub { color: rgba(245,242,235,0.6); }
+
 .about-card {
-  background: var(--dark);
-  border: 1px solid var(--border);
-  border-radius: 16px;
+  background: rgba(245,242,235,0.05);
+  border: 1px solid rgba(245,242,235,0.1);
   padding: 48px;
+  position: relative;
+}
+
+.about-card::before {
+  content: '+';
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 16px;
+  color: rgba(245,242,235,0.3);
 }
 
 .about-card-header {
   display: flex;
   align-items: center;
   gap: 16px;
-  margin-bottom: 32px;
+  margin-bottom: 28px;
 }
 
 .about-avatar {
-  width: 64px;
-  height: 64px;
-  background: var(--green-dark);
-  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  background: var(--red);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 28px;
+  font-size: 24px;
 }
 
 .about-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 24px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 20px;
   font-weight: 600;
+  color: var(--bg);
 }
 
-.about-title { font-size: 13px; color: var(--gray); }
+.about-title {
+  font-size: 12px;
+  color: rgba(245,242,235,0.5);
+  letter-spacing: 1px;
+}
 
 .about-card p {
-  font-size: 15px;
-  color: var(--gray);
+  font-size: 14px;
+  color: rgba(245,242,235,0.6);
   line-height: 1.8;
-  font-weight: 300;
+  font-weight: 400;
   margin-bottom: 16px;
 }
 
 .about-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
 
 .about-tag {
-  background: rgba(76,175,80,0.08);
-  border: 1px solid rgba(76,175,80,0.2);
-  color: var(--green-light);
-  font-size: 12px;
-  padding: 6px 14px;
-  border-radius: 20px;
+  border: 1px solid rgba(245,242,235,0.15);
+  color: rgba(245,242,235,0.6);
+  font-size: 10px;
+  padding: 5px 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 500;
 }
 
 .msme-badge {
   background: rgba(212,175,55,0.08);
   border: 1px solid rgba(212,175,55,0.2);
-  border-radius: 8px;
   padding: 16px 20px;
   margin-top: 24px;
   display: flex;
@@ -764,13 +768,13 @@ section { padding: 100px 60px; }
   gap: 12px;
 }
 
-.msme-badge .icon { font-size: 24px; }
-.msme-badge .msme-label { font-size: 11px; color: var(--gold); letter-spacing: 1px; text-transform: uppercase; }
-.msme-badge .msme-num { font-size: 13px; color: var(--white); font-weight: 500; margin-top: 2px; }
+.msme-badge .icon { font-size: 20px; }
+.msme-badge .msme-label { font-size: 9px; color: #D4AF37; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; }
+.msme-badge .msme-num { font-size: 13px; color: var(--bg); font-weight: 500; margin-top: 2px; }
 
 /* ─── CONTACT ─── */
 #contact {
-  background: var(--dark);
+  background: var(--bg);
 }
 
 .contact-grid {
@@ -781,136 +785,239 @@ section { padding: 100px 60px; }
   align-items: start;
 }
 
-.contact-info { display: flex; flex-direction: column; gap: 32px; }
+.contact-info { display: flex; flex-direction: column; gap: 28px; }
 
 .contact-item {
   display: flex;
-  gap: 20px;
+  gap: 16px;
   align-items: flex-start;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--border);
 }
 
+.contact-item:last-child { border-bottom: none; padding-bottom: 0; }
+
 .contact-icon {
-  width: 48px;
-  height: 48px;
-  background: rgba(76,175,80,0.1);
-  border: 1px solid rgba(76,175,80,0.2);
-  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
+  font-size: 16px;
   flex-shrink: 0;
 }
 
-.contact-label { font-size: 12px; color: var(--gray); letter-spacing: 0.5px; margin-bottom: 4px; text-transform: uppercase; }
-.contact-value { font-size: 16px; color: var(--white); font-weight: 400; }
-.contact-value a { color: var(--white); text-decoration: none; }
-.contact-value a:hover { color: var(--green-light); }
+.contact-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 9px;
+  color: var(--text-light);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.contact-value { font-size: 15px; color: var(--text); font-weight: 500; }
+.contact-value a { color: var(--text); text-decoration: none; }
+.contact-value a:hover { color: var(--red); }
 
 .contact-form {
-  background: var(--black);
+  background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 12px;
   padding: 48px;
+  position: relative;
+}
+
+.contact-form::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--red);
 }
 
 .contact-form h3 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 28px;
-  margin-bottom: 8px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 22px;
+  margin-bottom: 6px;
+  font-weight: 600;
 }
 
-.contact-form p {
-  font-size: 14px;
-  color: var(--gray);
+.contact-form > p {
+  font-size: 13px;
+  color: var(--text-muted);
   margin-bottom: 32px;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .form-group { margin-bottom: 20px; }
 
 .form-group label {
   display: block;
-  font-size: 12px;
-  color: var(--gray);
-  letter-spacing: 0.5px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 9px;
+  color: var(--text-light);
+  letter-spacing: 2px;
   text-transform: uppercase;
   margin-bottom: 8px;
+  font-weight: 600;
 }
 
 .form-group input,
-.form-group textarea {
+.form-group textarea,
+.form-group select {
   width: 100%;
-  background: rgba(255,255,255,0.03);
+  background: var(--bg);
   border: 1px solid var(--border);
-  border-radius: 6px;
   padding: 14px 16px;
-  color: var(--white);
-  font-family: 'Outfit', sans-serif;
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
   transition: border-color 0.3s;
   outline: none;
 }
 
 .form-group input:focus,
-.form-group textarea:focus {
-  border-color: rgba(76,175,80,0.5);
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--red);
 }
 
-.form-group textarea { height: 120px; resize: none; }
+.form-group input.error,
+.form-group textarea.error { border-color: #D45555; }
+
+.form-group select option {
+  background: var(--bg);
+  color: var(--text);
+}
+
+.form-group textarea { height: 100px; resize: none; }
 
 .form-submit {
   width: 100%;
-  background: var(--green-dark);
-  color: white;
+  background: var(--text);
+  color: var(--bg);
   border: none;
   padding: 16px;
-  border-radius: 6px;
-  font-size: 15px;
-  font-weight: 500;
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
   cursor: pointer;
   transition: all 0.3s;
-  letter-spacing: 0.3px;
 }
 
 .form-submit:hover {
-  background: var(--green-mid);
-  box-shadow: 0 8px 30px rgba(76,175,80,0.25);
+  background: var(--red);
+  color: white;
+}
+
+.form-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.form-submit .spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(245,242,235,0.3);
+  border-top-color: var(--bg);
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.form-status {
+  margin-top: 16px;
+  padding: 12px 16px;
+  font-size: 13px;
+  display: none;
+}
+
+.form-status.success {
+  display: block;
+  background: rgba(139,26,26,0.06);
+  border: 1px solid rgba(139,26,26,0.2);
+  color: var(--red);
+}
+
+.form-status.error {
+  display: block;
+  background: rgba(212,85,85,0.06);
+  border: 1px solid rgba(212,85,85,0.2);
+  color: #D45555;
+}
+
+/* ─── TOAST ─── */
+.toast {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--text);
+  color: var(--bg);
+  padding: 14px 28px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  z-index: 200;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
 
 /* ─── FOOTER ─── */
 footer {
-  background: var(--black);
-  border-top: 1px solid var(--border);
-  padding: 48px 60px;
+  background: var(--text);
+  border-top: 1px solid rgba(245,242,235,0.1);
+  padding: 40px 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: gap;
+  flex-wrap: wrap;
 }
 
 .footer-logo {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 20px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
   font-weight: 600;
-  color: var(--white);
+  color: var(--bg);
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
-.footer-logo span { color: var(--green); }
+.footer-logo .red { color: #D45555; }
+.footer-logo .brown { color: #C4A882; }
 
-.footer-links { display: flex; gap: 32px; }
+.footer-links { display: flex; gap: 28px; }
 
 .footer-links a {
-  color: var(--gray);
+  color: rgba(245,242,235,0.4);
   text-decoration: none;
-  font-size: 13px;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 500;
   transition: color 0.3s;
 }
 
-.footer-links a:hover { color: var(--white); }
+.footer-links a:hover { color: var(--bg); }
 
-.footer-copy { font-size: 13px; color: var(--gray); }
+.footer-copy { font-size: 11px; color: rgba(245,242,235,0.3); letter-spacing: 1px; }
 
 /* ─── ANIMATIONS ─── */
 @keyframes fadeUp {
@@ -935,14 +1042,13 @@ footer {
   bottom: 32px;
   right: 32px;
   background: #25D366;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
+  width: 56px;
+  height: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 28px;
-  box-shadow: 0 8px 30px rgba(37,211,102,0.4);
+  font-size: 24px;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.3);
   text-decoration: none;
   z-index: 99;
   transition: all 0.3s;
@@ -951,7 +1057,7 @@ footer {
 
 .wa-float:hover {
   transform: scale(1.1);
-  box-shadow: 0 12px 40px rgba(37,211,102,0.5);
+  box-shadow: 0 8px 30px rgba(37,211,102,0.4);
 }
 
 @keyframes bounceIn {
@@ -961,19 +1067,26 @@ footer {
 
 /* ─── MOBILE ─── */
 @media (max-width: 900px) {
-  nav { padding: 16px 24px; }
+  nav { padding: 14px 24px; }
   .nav-links { display: none; }
-  .hero { padding: 100px 24px 60px; }
+  .nav-hamburger { display: flex; }
+  .mobile-menu { display: flex; }
+  .hero { padding: 120px 24px 60px; flex-direction: column; }
   .hero-visual { display: none; }
-  .stats { grid-template-columns: repeat(2,1fr); padding: 40px 24px; }
+  .stats { grid-template-columns: 1fr; padding: 32px 24px; gap: 0; }
+  .stat-item:not(:last-child)::after { display: none; }
+  .stat-item:not(:last-child) { border-bottom: 1px solid var(--border); padding-bottom: 20px; }
   section { padding: 60px 24px; }
   .services-grid { grid-template-columns: 1fr; }
-  .how-grid { grid-template-columns: 1fr; }
-  .pricing-grid { grid-template-columns: 1fr; }
+  .service-card { padding: 28px 24px; }
+  .how-grid { grid-template-columns: 1fr; gap: 40px; }
   #about { grid-template-columns: 1fr; padding: 60px 24px; }
+  .about-card { padding: 32px 24px; }
   .contact-grid { grid-template-columns: 1fr; }
-  footer { flex-direction: column; gap: 24px; padding: 40px 24px; text-align: center; }
+  .contact-form { padding: 32px 24px; }
+  footer { flex-direction: column; gap: 20px; padding: 32px 24px; text-align: center; }
   .footer-links { flex-wrap: wrap; justify-content: center; }
+  .wa-float { bottom: 20px; right: 20px; width: 48px; height: 48px; font-size: 20px; }
 }
 </style>
   <meta name="google-site-verification" content="fMJnXVGP9mSZp2E3HaQVcEvlOTZJjWzz9yiZ0RetNEw" />
@@ -983,27 +1096,38 @@ footer {
 
 <!-- NAVBAR -->
 <nav>
-  <div class="nav-logo">Automation<span>.</span>Intelligence</div>
+  <div class="nav-logo"><span class="red">Automation</span><br><span class="brown">Intelligence</span></div>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
-    <li><a href="#how">How it Works</a></li>
-    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#how">Process</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#contact" class="nav-cta">Get Started</a></li>
   </ul>
+  <div class="nav-hamburger" id="hamburger" aria-label="Menu" role="button" tabindex="0">
+    <span></span><span></span><span></span>
+  </div>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services" class="mobile-nav-link">Services</a>
+  <a href="#how" class="mobile-nav-link">Process</a>
+  <a href="#about" class="mobile-nav-link">About</a>
+  <a href="#contact" class="mobile-nav-link" style="color: var(--red);">Get Started →</a>
+</div>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
   <div class="hero-content">
-    <div class="hero-badge">WhatsApp AI Automation · Hyderabad</div>
-    <h1>Your Clinic.<br>Running on <em>Autopilot.</em></h1>
-    <p>We build intelligent WhatsApp automation systems for clinics in Hyderabad. Appointment booking, patient follow-ups, Google reviews — all running 24/7 without a single manual message.</p>
+    <div class="hero-badge">
+      <div class="circuit-dot"></div>
+      WhatsApp AI Automation · Hyderabad
+    </div>
+    <h1>Conversational <span class="red">Engineering</span> For <span class="brown">High-Value</span> Clinics.</h1>
+    <p>We replace manual chat handling with an automated backend ecosystem. Appointment booking, patient follow-ups, Google reviews — all running 24/7 without a single manual message.</p>
     <div class="hero-actions">
-      <a href="#contact" class="btn-primary">Book a Free Demo</a>
-      <a href="#services" class="btn-secondary">See How it Works →</a>
+      <a href="#contact" class="btn-primary">Book a Free Demo →</a>
+      <a href="#services" class="btn-secondary">View Infrastructure</a>
     </div>
   </div>
   <div class="hero-visual">
@@ -1012,12 +1136,12 @@ footer {
         <div class="chat-avatar">🏥</div>
         <div>
           <div class="chat-name">City Diabetes Clinic</div>
-          <div class="chat-status">Online · AI Assistant</div>
+          <div class="chat-status">Online · AI Agent</div>
         </div>
       </div>
       <div class="chat-body">
         <div class="chat-msg bot">
-          👋 Welcome to City Diabetes Clinic!<br><br>
+          Welcome to City Diabetes Clinic.<br><br>
           How can I help you today?<br>
           1. Book Appointment<br>
           2. My Appointments<br>
@@ -1030,9 +1154,9 @@ footer {
         </div>
         <div class="chat-msg bot">
           Great! Please choose a date:<br><br>
-          📅 Mon, 12 May<br>
-          📅 Tue, 13 May<br>
-          📅 Wed, 14 May
+          □ Mon, 12 May<br>
+          □ Tue, 13 May<br>
+          □ Wed, 14 May
           <div class="time">10:32 AM</div>
         </div>
         <div class="chat-msg user">
@@ -1061,57 +1185,65 @@ footer {
     <div class="stat-num">7<span>-10</span></div>
     <div class="stat-label">Days to Go Live</div>
   </div>
-  <div class="stat-item reveal">
-    <div class="stat-num">14999<span>₹</span></div>
-    <div class="stat-label">Setup Cost</div>
-  </div>
 </div>
 
 <!-- SERVICES -->
 <section id="services">
-  <div class="section-label">What We Automate</div>
-  <h2 class="section-title">Five Workflows.<br><em>Zero Manual Work.</em></h2>
-  <p class="section-sub">Every automation runs silently in the background — your staff focuses on patients, not messages.</p>
+  <div class="section-label">Core Infrastructure</div>
+  <h2 class="section-title">Enterprise Standards.<br><span class="brown">Built To Last.</span></h2>
+  <p class="section-sub">No third-party modifications. Custom logic engine configured for your clinic's exact operational funnel.</p>
 
   <div class="services-grid">
     <div class="service-card reveal">
-      <div class="service-num">01</div>
-      <span class="service-icon">🤖</span>
+      <div class="service-card-header">
+        <div class="service-num">01 / BOOKING</div>
+        <div class="service-icon">🤖</div>
+      </div>
       <h3>AI Appointment Booking</h3>
       <p>Patients message your clinic WhatsApp and our AI handles the entire booking conversation — checking availability, confirming slots, saving to your records. Works at 2 AM on a Sunday.</p>
-      <span class="service-tag">Available 24/7</span>
+      <span class="service-tag">Zero Human Latency</span>
     </div>
     <div class="service-card reveal">
-      <div class="service-num">02</div>
-      <span class="service-icon">⏰</span>
+      <div class="service-card-header">
+        <div class="service-num">02 / RETENTION</div>
+        <div class="service-icon">⏰</div>
+      </div>
       <h3>Appointment Reminders</h3>
       <p>Automatic WhatsApp reminders sent before every appointment. Patients confirm or reschedule — all handled by the system. No-shows drop significantly from day one.</p>
-      <span class="service-tag">Reduces No-Shows</span>
+      <span class="service-tag">Reduces Leakage</span>
     </div>
     <div class="service-card reveal">
-      <div class="service-num">03</div>
-      <span class="service-icon">💬</span>
+      <div class="service-card-header">
+        <div class="service-num">03 / FOLLOW-UP</div>
+        <div class="service-icon">💬</div>
+      </div>
       <h3>Post-Treatment Follow Up</h3>
       <p>Three days after every visit, the system checks on your patient. How are they feeling? Any concerns? This builds trust and catches issues early — automatically.</p>
-      <span class="service-tag">Builds Patient Loyalty</span>
+      <span class="service-tag">Patient Loyalty</span>
     </div>
     <div class="service-card reveal">
-      <div class="service-num">04</div>
-      <span class="service-icon">⭐</span>
+      <div class="service-card-header">
+        <div class="service-num">04 / REPUTATION</div>
+        <div class="service-icon">⭐</div>
+      </div>
       <h3>Google Review Generation</h3>
       <p>Happy patients automatically receive a review request. Only positive sentiment triggers it. Watch your Google rating climb and new patients discover your clinic organically.</p>
-      <span class="service-tag">Grows Online Reputation</span>
+      <span class="service-tag">Organic Growth</span>
     </div>
     <div class="service-card reveal">
-      <div class="service-num">05</div>
-      <span class="service-icon">🔄</span>
+      <div class="service-card-header">
+        <div class="service-num">05 / RECOVERY</div>
+        <div class="service-icon">🔄</div>
+      </div>
       <h3>Patient Reengagement</h3>
       <p>Patients who haven't visited in months receive a personalised message bringing them back. Your old patient list becomes a recurring revenue engine — automatically.</p>
-      <span class="service-tag">Recovers Lost Revenue</span>
+      <span class="service-tag">Revenue Recovery</span>
     </div>
-    <div class="service-card reveal" style="background: rgba(27,94,32,0.05);">
-      <div class="service-num">+</div>
-      <span class="service-icon">📊</span>
+    <div class="service-card reveal">
+      <div class="service-card-header">
+        <div class="service-num">06 / REPORTING</div>
+        <div class="service-icon">📊</div>
+      </div>
       <h3>Monthly Performance Report</h3>
       <p>Every month you receive a detailed report — appointments booked, reminders sent, patients reactivated, reviews generated. See the exact value we deliver.</p>
       <span class="service-tag">Full Transparency</span>
@@ -1121,9 +1253,9 @@ footer {
 
 <!-- HOW IT WORKS -->
 <section id="how">
-  <div class="section-label">The Process</div>
-  <h2 class="section-title">Live in <em>7 to 10 Days.</em></h2>
-  <p class="section-sub">From first conversation to fully automated clinic — we handle everything.</p>
+  <div class="section-label">Executive Architecture</div>
+  <h2 class="section-title">Direct Database Sync.<br><span class="red">Zero Human Latency.</span></h2>
+  <p class="section-sub">From first conversation to fully automated clinic — we handle everything. No third-party modifications.</p>
 
   <div class="how-grid">
     <div class="steps reveal">
@@ -1158,7 +1290,7 @@ footer {
     </div>
 
     <div class="how-visual reveal">
-      <div style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:24px;">Onboarding Timeline</div>
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:24px;font-weight:600;">Onboarding Timeline</div>
       <div class="timeline">
         <div class="timeline-item">
           <div class="timeline-dot"></div>
@@ -1188,7 +1320,7 @@ footer {
           <div class="timeline-dot"></div>
           <div>
             <div class="timeline-day">Day 7 — You go live</div>
-            <div class="timeline-task">🎉 Bot is live on your number</div>
+            <div class="timeline-task">Bot is live on your number</div>
             <div class="timeline-sub">Patients start booking automatically</div>
           </div>
         </div>
@@ -1197,83 +1329,11 @@ footer {
   </div>
 </section>
 
-<!-- PRICING -->
-<section id="pricing">
-  <div class="section-label">Investment</div>
-  <h2 class="section-title">Simple, <em>Transparent</em> Pricing.</h2>
-  <p class="section-sub">No hidden fees. No contracts. Cancel anytime. Most clinics recover the cost within the first week.</p>
-
-  <div class="pricing-grid">
-    <div class="pricing-card featured reveal">
-     
-      <div class="pricing-name">Starter</div>
-      <div class="pricing-tagline">Perfect for small clinics</div>
-      <div class="pricing-price">
-        <div class="pricing-amount"><span class="pricing-currency">₹</span>10,776</div>
-        <div class="pricing-period">per month · no contract</div>
-      </div>
-      <div class="pricing-breakdown">
-        <div><span>WhatsApp API Platform</span><span>₹3,777</span></div>
-        <div><span>Automation & Maintenance</span><span>₹6,999</span></div>
-        <div><span>Total Investment</span><span>₹10,776/mo</span></div>
-      </div>
-      <ul class="pricing-features">
-        <li>WhatApp API Integration</li>
-        <li>AI Appointment Booking 24/7</li>
-        <li>Appointment Reminders</li>
-        <li>Post Treatment Follow Up</li>
-        <li>Google Review Generation</li>
-        <li>Patient Reengagement</li>
-        <li>Monthly Performance Report</li>
-        <li>5,000 Subscribers</li>
-        <li>2 Team Members</li>
-        <li>Unlimited Message Credits</li>
-        <li>Unlimited Free Incoming Conversations</li>
-        <li>Messaging Template Management</li>
-        <li>WhatsApp Live Chat Dashboard</li>
-      </ul>
-      <a href="#contact" class="btn-primary" style="display:block;text-align:center;">Get Started Free →</a>
-    </div>
-
-    <div class="pricing-card reveal">
-       <div class="pricing-badge">Most Popular</div>
-      <div class="pricing-name">Growth</div>
-      <div class="pricing-tagline">For growing clinics</div>
-      <div class="pricing-price">
-        <div class="pricing-amount"><span class="pricing-currency">₹</span>19,942</div>
-        <div class="pricing-period">per month · no contract</div>
-      </div>
-      <div class="pricing-breakdown">
-        <div><span>WhatsApp API Platform</span><span>₹9,442</span></div>
-        <div><span>Automation & Maintenance</span><span>₹10,500</span></div>
-        <div><span>Total Investment</span><span>₹19,942/mo</span></div>
-      </div>
-      <ul class="pricing-features">
-        <li>Everything in Starter</li>
-       
-        <li>Omnichannel Inbox: WhatsApp, Instagram & Facebook</li>
-        <li>5 Team Members</li>
-        <li>15,000 Subscribers</li>
-        <li>AI Intent Detection</li>
-        <li>Phone Number Masking</li>
-        <li>Remove Watermark</li>
-        <li>Click to WhatsApp Ad Integration</li>
-        <li>High Speed Broadcasting</li>
-        <li>Smart Agent Routing</li>
-        <li>Weekly Performance Report</li>
-        <li>Priority Support</li>
-        <li>Dedicated Account Manager</li>
-      </ul>
-      <a href="#contact" class="btn-secondary" style="display:block;text-align:center;padding:16px;">Talk to Us →</a>
-    </div>
-  </div>
-</section>
-
 <!-- ABOUT -->
 <section id="about">
   <div>
-    <div class="section-label">Who We Are</div>
-    <h2 class="section-title">Built in <em>Hyderabad.</em><br>For Hyderabad Clinics.</h2>
+    <div class="section-label">System Engineering</div>
+    <h2 class="section-title">Built in <span class="brown">Hyderabad.</span><br>For <span class="red">Hyderabad</span> Clinics.</h2>
     <p class="section-sub" style="margin-bottom:40px;">We are a registered automation company focused exclusively on making Indian clinics run smarter. Not a generic software company — we understand the specific challenges of clinic management in India.</p>
     <div class="about-tags">
       <span class="about-tag">WhatsApp API</span>
@@ -1306,9 +1366,9 @@ footer {
 
 <!-- CONTACT -->
 <section id="contact">
-  <div class="section-label">Get in Touch</div>
-  <h2 class="section-title">Ready to <em>Automate</em><br>Your Clinic?</h2>
-  <p class="section-sub">Book a free 15-minute demo. We'll show you exactly how it works on a live WhatsApp number — no commitments.</p>
+  <div class="section-label">Immediate Engagement</div>
+  <h2 class="section-title">Optimize Your<br><span class="red">Operational Funnel.</span></h2>
+  <p class="section-sub">Stop wasting valuable transaction space on slow, disconnected customer handling systems. Book a free demo.</p>
 
   <div class="contact-grid">
     <div class="contact-info reveal">
@@ -1345,76 +1405,186 @@ footer {
     <div class="contact-form reveal">
       <h3>Book a Free Demo</h3>
       <p>Fill this form and we'll reach out within 2 hours to schedule your demo.</p>
-      <div class="form-group">
-        <label>Your Name</label>
-        <input type="text" placeholder="Dr. Name">
-      </div>
-      <div class="form-group">
-        <label>Clinic Name</label>
-        <input type="text" placeholder="City Diabetes Clinic">
-      </div>
-      <div class="form-group">
-        <label>WhatsApp Number</label>
-        <input type="tel" placeholder="+919876543210">
-      </div>
-      <div class="form-group">
-        <label>Message (Optional)</label>
-        <textarea placeholder="Tell us a bit about your clinic..."></textarea>
-      </div>
-      <button class="form-submit" onclick="window.open('https://wa.me/918341371690?text=Hi%20Rishikesh%2C%20I%20want%20to%20book%20a%20free%20demo%20for%20my%20clinic.','_blank')">
-        Send via WhatsApp →
-      </button>
+      <form id="demoForm">
+        <input type="hidden" name="access_key" value="d571b831-9165-45da-8d8b-806d369d6bfc">
+        <input type="hidden" name="subject" value="New Demo Request — Automation Intelligence">
+        <input type="hidden" name="from_name" value="Automation Intelligence Website">
+        <input type="checkbox" name="botcheck" style="display:none">
+
+        <div class="form-group">
+          <label for="formName">Your Name *</label>
+          <input type="text" id="formName" name="name" placeholder="Dr. Name" required>
+        </div>
+        <div class="form-group">
+          <label for="formClinic">Clinic Name *</label>
+          <input type="text" id="formClinic" name="clinic" placeholder="City Diabetes Clinic" required>
+        </div>
+        <div class="form-group">
+          <label for="formEmail">Email Address *</label>
+          <input type="email" id="formEmail" name="email" placeholder="doctor@clinic.com" required>
+        </div>
+        <div class="form-group">
+          <label for="formPhone">WhatsApp Number *</label>
+          <input type="tel" id="formPhone" name="phone" placeholder="+919876543210" required>
+        </div>
+        <div class="form-group">
+          <label for="formMessage">Message (Optional)</label>
+          <textarea id="formMessage" name="message" placeholder="Tell us a bit about your clinic..."></textarea>
+        </div>
+        <button type="submit" class="form-submit" id="submitBtn">
+          Submit Details →
+        </button>
+        <div class="form-status" id="formStatus"></div>
+      </form>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">Automation<span>.</span>Intelligence</div>
+  <div class="footer-logo"><span class="red">Automation</span> <span class="brown">Intelligence</span></div>
   <div class="footer-links">
     <a href="#services">Services</a>
-    <a href="#pricing">Pricing</a>
     <a href="#about">About</a>
-    <a href="privacy-policy.html">Privacy Policy</a>
-    <a href="terms-of-service.html">Terms of Service</a>
+    <a href="privacy-policy.html">Privacy</a>
+    <a href="terms-of-service.html">Terms</a>
   </div>
-  <div class="footer-copy">© 2026 Automation Intelligence · UDYAM-TS-02-0333374</div>
+  <div class="footer-copy">© <span id="currentYear"></span> Automation Intelligence · UDYAM-TS-02-0333374</div>
 </footer>
 
 <!-- WHATSAPP FLOAT -->
-<a href="https://wa.me/918341371690?text=Hi%20Rishikesh%2C%20I%20want%20to%20know%20more%20about%20clinic%20automation." class="wa-float" target="_blank">💬</a>
+<a href="https://wa.me/918341371690?text=Hi%20Rishikesh%2C%20I%20want%20to%20know%20more%20about%20clinic%20automation." class="wa-float" target="_blank" aria-label="Chat on WhatsApp">💬</a>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
 
 <script>
+// Dynamic year
+document.getElementById('currentYear').textContent = new Date().getFullYear();
+
 // Reveal on scroll
 const reveals = document.querySelectorAll('.reveal');
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry, i) => {
     if (entry.isIntersecting) {
       setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      observer.unobserve(entry.target);
     }
   });
 }, { threshold: 0.1 });
-
 reveals.forEach(el => observer.observe(el));
 
 // Nav scroll effect
 window.addEventListener('scroll', () => {
   const nav = document.querySelector('nav');
-  if (window.scrollY > 50) {
-    nav.style.padding = '14px 60px';
-  } else {
-    nav.style.padding = '20px 60px';
+  nav.style.padding = window.scrollY > 50 ? '12px 60px' : '16px 60px';
+});
+
+// Mobile menu
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  mobileMenu.classList.toggle('open');
+  document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+});
+
+document.querySelectorAll('.mobile-nav-link').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+});
+
+// Toast
+function showToast(message, duration = 3000) {
+  const toast = document.getElementById('toast');
+  toast.textContent = message;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), duration);
+}
+
+// Form submit via Web3Forms
+const demoForm = document.getElementById('demoForm');
+const submitBtn = document.getElementById('submitBtn');
+const formStatus = document.getElementById('formStatus');
+
+demoForm.addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  document.querySelectorAll('.form-group input, .form-group textarea').forEach(el => el.classList.remove('error'));
+  formStatus.className = 'form-status';
+  formStatus.style.display = 'none';
+
+  const name = document.getElementById('formName').value.trim();
+  const clinic = document.getElementById('formClinic').value.trim();
+  const email = document.getElementById('formEmail').value.trim();
+  const phone = document.getElementById('formPhone').value.trim();
+
+  let hasError = false;
+  if (!name) { document.getElementById('formName').classList.add('error'); hasError = true; }
+  if (!clinic) { document.getElementById('formClinic').classList.add('error'); hasError = true; }
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { document.getElementById('formEmail').classList.add('error'); hasError = true; }
+  if (!phone) { document.getElementById('formPhone').classList.add('error'); hasError = true; }
+
+  if (hasError) {
+    formStatus.className = 'form-status error';
+    formStatus.textContent = 'Please fill in all required fields correctly.';
+    formStatus.style.display = 'block';
+    return;
+  }
+
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = '<span class="spinner"></span> SUBMITTING…';
+
+  try {
+    const formData = new FormData(demoForm);
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: formData
+    });
+    const result = await response.json();
+
+    if (result.success) {
+      formStatus.className = 'form-status success';
+      formStatus.innerHTML = '✓ Thank you! Your demo request has been submitted. We\'ll reach out within 2 hours.';
+      formStatus.style.display = 'block';
+      demoForm.reset();
+      showToast('Demo request submitted successfully!');
+    } else {
+      throw new Error(result.message || 'Submission failed');
+    }
+  } catch (error) {
+    formStatus.className = 'form-status error';
+    formStatus.textContent = 'Something went wrong. Please try again or contact us directly on WhatsApp.';
+    formStatus.style.display = 'block';
+    showToast('Submission failed. Please try again.');
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = 'Submit Details →';
   }
 });
 
-// Form submit
-document.querySelector('.form-submit').addEventListener('click', function(e) {
-  e.preventDefault();
-  const name = document.querySelector('input[placeholder="Dr.Name"]').value;
-  const clinic = document.querySelector('input[placeholder="City Diabetes Clinic"]').value;
-  const msg = `Hi Rishikesh, I want to book a free demo for my clinic.%0A%0AName: ${name}%0AClinic: ${clinic}`;
-  window.open(`https://wa.me/918341371690?text=${msg}`, '_blank');
+// Chat mockup animation
+const chatMessages = document.querySelectorAll('.chat-msg');
+chatMessages.forEach((msg, i) => {
+  msg.style.opacity = '0';
+  msg.style.transform = 'translateY(10px)';
+  msg.style.transition = 'all 0.4s ease';
+  setTimeout(() => {
+    msg.style.opacity = '1';
+    msg.style.transform = 'translateY(0)';
+  }, 800 + i * 600);
 });
+
+const chatTyping = document.querySelector('.chat-typing');
+if (chatTyping) {
+  chatTyping.style.opacity = '0';
+  chatTyping.style.transition = 'opacity 0.4s ease';
+  setTimeout(() => { chatTyping.style.opacity = '1'; }, 800 + chatMessages.length * 600);
+}
 </script>
 
 </body>
