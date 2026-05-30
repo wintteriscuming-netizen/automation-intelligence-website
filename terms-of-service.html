@@ -4,210 +4,370 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Terms of Service — Automation Intelligence</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --green-dark: #1B5E20;
-    --green-mid: #2E7D32;
-    --green-light: #E8F5E9;
-    --accent: #4CAF50;
-    --text: #1a1a1a;
-    --muted: #555;
-    --border: #e0e0e0;
-    --bg: #fafaf8;
-  }
+:root {
+  --bg: #F5F2EB;
+  --bg-alt: #EDE9E0;
+  --bg-card: #FDFBF7;
+  --red: #8B1A1A;
+  --red-light: #A63232;
+  --brown: #5C4033;
+  --brown-light: #7A6258;
+  --text: #1A1A1A;
+  --text-muted: #6B6560;
+  --text-light: #9A9590;
+  --border: rgba(26,26,26,0.12);
+  --border-strong: rgba(26,26,26,0.25);
+  --line: rgba(26,26,26,0.08);
+  --orange: #C45600;
+  --orange-bg: rgba(196,86,0,0.06);
+  --orange-border: rgba(196,86,0,0.2);
+}
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.8;
-  }
+html { scroll-behavior: smooth; }
 
-  header {
-    background: var(--green-dark);
-    padding: 24px 40px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
 
-  header .logo {
-    font-family: 'Playfair Display', serif;
-    color: white;
-    font-size: 22px;
-    font-weight: 700;
-  }
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: 
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 80px 80px;
+  pointer-events: none;
+  z-index: 0;
+}
 
-  header .tagline {
-    color: #A5D6A7;
-    font-size: 12px;
-    font-weight: 300;
-    margin-left: auto;
-  }
+/* ─── HEADER ─── */
+header {
+  background: var(--text);
+  padding: 18px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 3px solid var(--red);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
 
-  .hero {
-    background: linear-gradient(135deg, #1a3a2a 0%, var(--green-dark) 50%, var(--green-mid) 100%);
-    padding: 60px 40px;
-    text-align: center;
-    color: white;
-  }
+header .logo {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
 
-  .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 42px;
-    font-weight: 700;
-    margin-bottom: 12px;
-  }
+header .logo .red { color: #D45555; }
+header .logo .brown { color: #C4A882; }
 
-  .hero p { color: #C8E6C9; font-size: 15px; font-weight: 300; }
+header .back-link {
+  color: rgba(245,242,235,0.4);
+  text-decoration: none;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: color 0.3s;
+}
 
-  .hero .badge {
-    display: inline-block;
-    background: rgba(255,255,255,0.15);
-    border: 1px solid rgba(255,255,255,0.3);
-    color: white;
-    padding: 6px 16px;
-    border-radius: 20px;
-    font-size: 12px;
-    margin-top: 16px;
-  }
+header .back-link:hover { color: var(--bg); }
 
-  .container {
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 60px 40px;
-  }
+/* ─── HERO ─── */
+.hero {
+  background: var(--text);
+  padding: 80px 60px 60px;
+  color: var(--bg);
+  position: relative;
+}
 
-  .toc {
-    background: var(--green-light);
-    border-left: 4px solid var(--accent);
-    border-radius: 8px;
-    padding: 24px 28px;
-    margin-bottom: 48px;
-  }
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 60px;
+  right: 60px;
+  height: 1px;
+  background: rgba(245,242,235,0.1);
+}
 
-  .toc h3 {
-    font-family: 'Playfair Display', serif;
-    color: var(--green-dark);
-    margin-bottom: 12px;
-    font-size: 16px;
-  }
+.hero-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(245,242,235,0.4);
+  margin-bottom: 24px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
 
-  .toc ol { padding-left: 20px; }
-  .toc ol li { margin-bottom: 6px; }
-  .toc ol li a {
-    color: var(--green-mid);
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
-  }
-  .toc ol li a:hover { text-decoration: underline; }
+.hero-label::before {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: rgba(245,242,235,0.3);
+}
 
-  section {
-    margin-bottom: 48px;
-    padding-bottom: 48px;
-    border-bottom: 1px solid var(--border);
-  }
+.hero h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 600;
+  letter-spacing: -1px;
+  margin-bottom: 16px;
+}
 
-  section:last-child { border-bottom: none; }
+.hero h1 .brown { color: #C4A882; }
 
-  h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 26px;
-    color: var(--green-dark);
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
+.hero-sub {
+  font-size: 15px;
+  color: rgba(245,242,235,0.5);
+  max-width: 500px;
+  font-weight: 400;
+}
 
-  h2 .num {
-    background: var(--green-dark);
-    color: white;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 500;
-    flex-shrink: 0;
-  }
+.hero-badge {
+  display: inline-block;
+  border: 1px solid rgba(245,242,235,0.15);
+  color: rgba(245,242,235,0.6);
+  padding: 6px 16px;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-top: 24px;
+}
 
-  p { margin-bottom: 16px; color: var(--muted); font-size: 15px; }
+/* ─── CONTAINER ─── */
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 60px 40px;
+  position: relative;
+  z-index: 1;
+}
 
-  ul {
-    margin: 16px 0 16px 24px;
-    color: var(--muted);
-    font-size: 15px;
-  }
+/* ─── TOC ─── */
+.toc {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 32px 36px;
+  margin-bottom: 56px;
+  position: relative;
+}
 
-  ul li { margin-bottom: 8px; }
+.toc::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--red);
+}
 
-  .highlight-box {
-    background: var(--green-light);
-    border-radius: 8px;
-    padding: 20px 24px;
-    margin: 20px 0;
-    font-size: 14px;
-    color: var(--green-dark);
-    font-weight: 500;
-  }
+.toc h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  color: var(--text);
+  margin-bottom: 16px;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
 
-  .warning-box {
-    background: #FFF3E0;
-    border-left: 4px solid #FF9800;
-    border-radius: 8px;
-    padding: 20px 24px;
-    margin: 20px 0;
-    font-size: 14px;
-    color: #E65100;
-  }
+.toc ol { padding-left: 20px; }
+.toc ol li { margin-bottom: 6px; }
 
-  .contact-card {
-    background: var(--green-dark);
-    color: white;
-    border-radius: 12px;
-    padding: 32px;
-    margin-top: 48px;
-  }
+.toc ol li a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 400;
+  transition: color 0.3s;
+}
 
-  .contact-card h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 22px;
-    margin-bottom: 16px;
-  }
+.toc ol li a:hover { color: var(--red); }
 
-  .contact-card p { color: #C8E6C9; margin-bottom: 8px; font-size: 14px; }
-  .contact-card a { color: #A5D6A7; }
+/* ─── SECTIONS ─── */
+.policy-section {
+  margin-bottom: 56px;
+  padding-bottom: 56px;
+  border-bottom: 1px solid var(--border);
+}
 
-  footer {
-    background: #111;
-    color: #888;
-    text-align: center;
-    padding: 24px;
-    font-size: 13px;
-  }
+.policy-section:last-of-type { border-bottom: none; }
 
-  footer span { color: #4CAF50; }
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.section-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--red);
+  letter-spacing: 2px;
+  min-width: 30px;
+}
+
+.section-header h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0.5px;
+}
+
+.policy-section p {
+  margin-bottom: 16px;
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.policy-section ul {
+  margin: 16px 0 16px 0;
+  color: var(--text-muted);
+  font-size: 14px;
+  list-style: none;
+}
+
+.policy-section ul li {
+  margin-bottom: 10px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.policy-section ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 6px;
+  height: 6px;
+  background: var(--red);
+  border-radius: 50%;
+}
+
+/* ─── HIGHLIGHT BOX ─── */
+.highlight-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--red);
+  padding: 20px 24px;
+  margin: 24px 0;
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* ─── WARNING BOX ─── */
+.warning-box {
+  background: var(--orange-bg);
+  border: 1px solid var(--orange-border);
+  border-left: 3px solid var(--orange);
+  padding: 20px 24px;
+  margin: 24px 0;
+  font-size: 13px;
+  color: var(--orange);
+  line-height: 1.7;
+  font-weight: 500;
+}
+
+/* ─── CONTACT CARD ─── */
+.contact-card {
+  background: var(--text);
+  color: var(--bg);
+  padding: 40px;
+  margin-top: 56px;
+  position: relative;
+}
+
+.contact-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--red);
+}
+
+.contact-card h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 18px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.contact-card p {
+  color: rgba(245,242,235,0.6);
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.contact-card a { color: #D45555; text-decoration: none; }
+.contact-card a:hover { text-decoration: underline; }
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--text);
+  border-top: 1px solid rgba(245,242,235,0.1);
+  padding: 32px 60px;
+  text-align: center;
+  font-size: 11px;
+  color: rgba(245,242,235,0.3);
+  letter-spacing: 1px;
+}
+
+footer span { color: #D45555; }
+
+/* ─── MOBILE ─── */
+@media (max-width: 900px) {
+  header { padding: 14px 24px; }
+  .hero { padding: 60px 24px 40px; }
+  .hero::after { left: 24px; right: 24px; }
+  .container { padding: 40px 24px; }
+  .toc { padding: 24px; }
+  .contact-card { padding: 28px 24px; }
+  footer { padding: 24px; }
+}
 </style>
 </head>
 <body>
 
 <header>
-  <div class="logo">Automation Intelligence</div>
-  <div class="tagline">UDYAM-TS-02-0333374· Hyderabad, India</div>
+  <div class="logo">
+    <span class="red">Automation</span> <span class="brown">Intelligence</span>
+  </div>
+  <a href="index.html" class="back-link">← Back to Site</a>
 </header>
 
 <div class="hero">
-  <h1>Terms of Service</h1>
-  <p>Please read these terms carefully before using our services</p>
-  <div class="badge">Last Updated: May 2026</div>
+  <div class="hero-label">Legal Framework</div>
+  <h1>Terms of <span class="brown">Service</span></h1>
+  <p class="hero-sub">Please read these terms carefully before using our services.</p>
+  <div class="hero-badge">Last Updated: May 2025</div>
 </div>
 
 <div class="container">
@@ -233,14 +393,20 @@
     These Terms of Service govern your use of services provided by Automation Intelligence, including WhatsApp clinic automation systems, AI appointment booking, patient follow-up automation, and related services. By engaging our services or interacting with our systems, you agree to these terms.
   </div>
 
-  <section id="acceptance">
-    <h2><span class="num">1</span>Acceptance of Terms</h2>
+  <div class="policy-section" id="acceptance">
+    <div class="section-header">
+      <div class="section-num">01</div>
+      <h2>Acceptance of Terms</h2>
+    </div>
     <p>By using any service provided by Automation Intelligence ("we", "us", "our"), whether as a clinic client or as a patient interacting with our automated systems, you agree to be bound by these Terms of Service.</p>
     <p>If you do not agree to these terms, please do not use our services. We reserve the right to update these terms at any time, and continued use of our services constitutes acceptance of any changes.</p>
-  </section>
+  </div>
 
-  <section id="services">
-    <h2><span class="num">2</span>Our Services</h2>
+  <div class="policy-section" id="services">
+    <div class="section-header">
+      <div class="section-num">02</div>
+      <h2>Our Services</h2>
+    </div>
     <p>Automation Intelligence provides WhatsApp-based automation services for clinics and healthcare providers in India, including but not limited to:</p>
     <ul>
       <li>AI-powered appointment booking via WhatsApp</li>
@@ -252,10 +418,13 @@
       <li>WhatsApp Business API setup and management</li>
     </ul>
     <p>Services are provided on a monthly subscription basis and are subject to availability of third-party platforms including WhatsApp Business API and Google services.</p>
-  </section>
+  </div>
 
-  <section id="clients">
-    <h2><span class="num">3</span>Client Responsibilities</h2>
+  <div class="policy-section" id="clients">
+    <div class="section-header">
+      <div class="section-num">03</div>
+      <h2>Client Responsibilities</h2>
+    </div>
     <p>As a clinic client subscribing to our services, you agree to:</p>
     <ul>
       <li>Provide accurate clinic information including working hours, appointment types, and contact details</li>
@@ -266,10 +435,13 @@
       <li>Maintain the confidentiality of API keys and access credentials provided to you</li>
       <li>Promptly inform us of any changes to your clinic operations that may affect automation workflows</li>
     </ul>
-  </section>
+  </div>
 
-  <section id="patients">
-    <h2><span class="num">4</span>Patient / End User Terms</h2>
+  <div class="policy-section" id="patients">
+    <div class="section-header">
+      <div class="section-num">04</div>
+      <h2>Patient / End User Terms</h2>
+    </div>
     <p>If you are a patient interacting with a clinic's WhatsApp automation powered by Automation Intelligence:</p>
     <ul>
       <li>You are interacting with an AI-powered system — responses are automated</li>
@@ -281,10 +453,13 @@
     <div class="warning-box">
       ⚠️ This system is for appointment management only. It does not provide medical advice, diagnosis, or treatment. For any medical concerns, please consult your doctor directly.
     </div>
-  </section>
+  </div>
 
-  <section id="payment">
-    <h2><span class="num">5</span>Payment Terms</h2>
+  <div class="policy-section" id="payment">
+    <div class="section-header">
+      <div class="section-num">05</div>
+      <h2>Payment Terms</h2>
+    </div>
     <p>Our pricing structure is as follows:</p>
     <ul>
       <li>Subscription fees are billed monthly in advance</li>
@@ -295,10 +470,13 @@
       <li>Setup fees, if any, are non-refundable</li>
     </ul>
     <p>All prices are in Indian Rupees (INR) unless otherwise specified. GST will be applied as per applicable Indian tax laws.</p>
-  </section>
+  </div>
 
-  <section id="whatsapp">
-    <h2><span class="num">6</span>WhatsApp Usage Policy</h2>
+  <div class="policy-section" id="whatsapp">
+    <div class="section-header">
+      <div class="section-num">06</div>
+      <h2>WhatsApp Usage Policy</h2>
+    </div>
     <p>Our services operate through WhatsApp Business API governed by Meta's policies. By using our services, you agree to:</p>
     <ul>
       <li>Comply with WhatsApp's Business Policy and Commerce Policy</li>
@@ -307,16 +485,22 @@
       <li>Honour all opt-out requests within 24 hours</li>
     </ul>
     <p>Automation Intelligence is not responsible for any suspension or restriction of WhatsApp Business accounts resulting from violations of Meta's policies by the clinic client.</p>
-  </section>
+  </div>
 
-  <section id="ip">
-    <h2><span class="num">7</span>Intellectual Property</h2>
+  <div class="policy-section" id="ip">
+    <div class="section-header">
+      <div class="section-num">07</div>
+      <h2>Intellectual Property</h2>
+    </div>
     <p>All automation workflows, system designs, AI prompts, and software developed by Automation Intelligence remain our intellectual property. Clinic clients receive a licence to use these systems during their subscription period only.</p>
     <p>You may not copy, reverse-engineer, resell, or distribute our automation systems without prior written permission.</p>
-  </section>
+  </div>
 
-  <section id="liability">
-    <h2><span class="num">8</span>Limitation of Liability</h2>
+  <div class="policy-section" id="liability">
+    <div class="section-header">
+      <div class="section-num">08</div>
+      <h2>Limitation of Liability</h2>
+    </div>
     <p>Automation Intelligence's liability is limited to the monthly subscription fee paid for the affected service period. We are not liable for:</p>
     <ul>
       <li>Downtime or outages caused by WhatsApp, Meta, Google, or other third-party platforms</li>
@@ -325,10 +509,13 @@
       <li>Any indirect, consequential, or incidental damages</li>
       <li>Decisions made by clinic staff or patients based on automated messages</li>
     </ul>
-  </section>
+  </div>
 
-  <section id="termination">
-    <h2><span class="num">9</span>Termination</h2>
+  <div class="policy-section" id="termination">
+    <div class="section-header">
+      <div class="section-num">09</div>
+      <h2>Termination</h2>
+    </div>
     <p>Either party may terminate the service agreement with 30 days written notice. Automation Intelligence reserves the right to immediately terminate services in cases of:</p>
     <ul>
       <li>Non-payment of fees</li>
@@ -337,32 +524,38 @@
       <li>Providing false information during onboarding</li>
     </ul>
     <p>Upon termination, access to automation systems will be revoked and patient data will be handled as per our Privacy Policy.</p>
-  </section>
+  </div>
 
-  <section id="governing">
-    <h2><span class="num">10</span>Governing Law</h2>
+  <div class="policy-section" id="governing">
+    <div class="section-header">
+      <div class="section-num">10</div>
+      <h2>Governing Law</h2>
+    </div>
     <p>These Terms of Service are governed by the laws of India. Any disputes arising from these terms shall be subject to the exclusive jurisdiction of the courts in Hyderabad, Telangana, India.</p>
     <p>We encourage resolution of any disputes through direct communication before pursuing legal action.</p>
-  </section>
+  </div>
 
-  <section id="contact">
-    <h2><span class="num">11</span>Contact</h2>
+  <div class="policy-section" id="contact">
+    <div class="section-header">
+      <div class="section-num">11</div>
+      <h2>Contact</h2>
+    </div>
     <p>For any questions regarding these Terms of Service, please contact us:</p>
-  </section>
+  </div>
 
   <div class="contact-card">
     <h3>Automation Intelligence</h3>
     <p>📍 Hyderabad, Telangana, India</p>
     <p>📞 +91 83413 71690</p>
-    <p>✉️ <a href="mailto:perjarishikesh@gmail.com">perjarishikesh@gmail.com</a></p>
-    <p>🌐 <a href="https://yourcliniconautomation.netlify.app">yourcliniconautomation.netlify.app</a></p>
+    <p>✉️ <a href="mailto:info@automationintelligence.in">info@automationintelligence.in</a></p>
+    <p>🌐 <a href="https://automationintelligence.in">automationintelligence.in</a></p>
     <p>🏢 MSME Registration: UDYAM-TS-02-0333374</p>
   </div>
 
 </div>
 
 <footer>
-  &copy; 2026 <span>Automation Intelligence</span> · All Rights Reserved · Hyderabad, India
+  © <script>document.write(new Date().getFullYear())</script> <span>Automation Intelligence</span> · All Rights Reserved · Hyderabad, India
 </footer>
 
 </body>
