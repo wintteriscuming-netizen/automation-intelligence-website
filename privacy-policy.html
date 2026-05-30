@@ -23,7 +23,6 @@
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
 html { scroll-behavior: smooth; }
 
 body {
@@ -46,7 +45,6 @@ body::before {
   z-index: 0;
 }
 
-/* ─── HEADER ─── */
 header {
   background: var(--text);
   padding: 18px 60px;
@@ -83,7 +81,6 @@ header .back-link {
 
 header .back-link:hover { color: var(--bg); }
 
-/* ─── HERO ─── */
 .hero {
   background: var(--text);
   padding: 80px 60px 60px;
@@ -150,7 +147,6 @@ header .back-link:hover { color: var(--bg); }
   margin-top: 24px;
 }
 
-/* ─── CONTAINER ─── */
 .container {
   max-width: 860px;
   margin: 0 auto;
@@ -159,7 +155,6 @@ header .back-link:hover { color: var(--bg); }
   z-index: 1;
 }
 
-/* ─── TOC ─── */
 .toc {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -188,8 +183,8 @@ header .back-link:hover { color: var(--bg); }
   font-weight: 600;
 }
 
-.toc ol { padding-left: 20px; counter-reset: toc-counter; }
-.toc ol li { margin-bottom: 6px; counter-increment: toc-counter; }
+.toc ol { padding-left: 20px; }
+.toc ol li { margin-bottom: 6px; }
 
 .toc ol li a {
   color: var(--text-muted);
@@ -201,7 +196,6 @@ header .back-link:hover { color: var(--bg); }
 
 .toc ol li a:hover { color: var(--red); }
 
-/* ─── SECTIONS ─── */
 .policy-section {
   margin-bottom: 56px;
   padding-bottom: 56px;
@@ -265,7 +259,6 @@ header .back-link:hover { color: var(--bg); }
   border-radius: 50%;
 }
 
-/* ─── HIGHLIGHT BOX ─── */
 .highlight-box {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -277,7 +270,6 @@ header .back-link:hover { color: var(--bg); }
   line-height: 1.7;
 }
 
-/* ─── CONTACT CARD ─── */
 .contact-card {
   background: var(--text);
   color: var(--bg);
@@ -313,7 +305,6 @@ header .back-link:hover { color: var(--bg); }
 .contact-card a { color: #D45555; text-decoration: none; }
 .contact-card a:hover { text-decoration: underline; }
 
-/* ─── FOOTER ─── */
 footer {
   background: var(--text);
   border-top: 1px solid rgba(245,242,235,0.1);
@@ -326,7 +317,6 @@ footer {
 
 footer span { color: #D45555; }
 
-/* ─── MOBILE ─── */
 @media (max-width: 900px) {
   header { padding: 14px 24px; }
   .hero { padding: 60px 24px 40px; }
@@ -373,7 +363,7 @@ footer span { color: #D45555; }
   </div>
 
   <div class="highlight-box">
-    This Privacy Policy applies to all services provided by Automation Intelligence, including WhatsApp-based clinic automation systems, appointment booking bots, and related automation services. By using our services, you agree to this policy.
+    This Privacy Policy applies to all services provided by Automation Intelligence, including WhatsApp-based business automation systems, lead capture and booking bots, and related automation services. By using our services, you agree to this policy.
   </div>
 
   <div class="policy-section" id="info">
@@ -381,13 +371,13 @@ footer span { color: #D45555; }
       <div class="section-num">01</div>
       <h2>Information We Collect</h2>
     </div>
-    <p>When you interact with our WhatsApp automation systems on behalf of our clinic clients, we may collect the following information:</p>
+    <p>When you interact with our WhatsApp automation systems on behalf of our business clients, we may collect the following information:</p>
     <ul>
       <li>Your WhatsApp phone number and display name</li>
-      <li>Appointment details — date, time, type of consultation</li>
-      <li>Patient information provided during booking — name, age, health concern</li>
-      <li>Message content related to appointment booking and clinic communication</li>
-      <li>Response data from post-treatment follow up messages</li>
+      <li>Booking details — date, time, type of service or consultation</li>
+      <li>Customer information provided during booking — name, contact details, service inquiry</li>
+      <li>Message content related to appointment booking and business communication</li>
+      <li>Response data from post-service follow up messages</li>
       <li>Opt-in and opt-out preferences for WhatsApp communications</li>
     </ul>
   </div>
@@ -397,16 +387,16 @@ footer span { color: #D45555; }
       <div class="section-num">02</div>
       <h2>How We Use Your Information</h2>
     </div>
-    <p>We use the information collected solely to provide clinic automation services, including:</p>
+    <p>We use the information collected solely to provide business automation services, including:</p>
     <ul>
-      <li>Processing and confirming appointment bookings</li>
-      <li>Sending appointment reminders before your scheduled visit</li>
-      <li>Post-treatment follow-up messages to ensure patient wellbeing</li>
-      <li>Sending Google review requests to satisfied patients</li>
-      <li>Reengagement messages to inactive patients (with opt-out option)</li>
-      <li>Maintaining appointment records for clinic management</li>
+      <li>Processing and confirming appointment and consultation bookings</li>
+      <li>Sending booking reminders before your scheduled visit or meeting</li>
+      <li>Post-service follow-up messages to ensure customer satisfaction</li>
+      <li>Sending Google review requests to satisfied customers</li>
+      <li>Reengagement messages to inactive customers (with opt-out option)</li>
+      <li>Maintaining booking and customer records for business management</li>
     </ul>
-    <p>We do not use your information for any marketing purposes unrelated to the clinic you are interacting with.</p>
+    <p>We do not use your information for any marketing purposes unrelated to the business you are interacting with.</p>
   </div>
 
   <div class="policy-section" id="whatsapp">
@@ -414,10 +404,10 @@ footer span { color: #D45555; }
       <div class="section-num">03</div>
       <h2>WhatsApp Data Usage</h2>
     </div>
-    <p>Our automation systems operate through WhatsApp Business API, managed via Meta's official platform. By messaging a clinic that uses our system, you acknowledge:</p>
+    <p>Our automation systems operate through WhatsApp Business API, managed via Meta's official platform. By messaging a business that uses our system, you acknowledge:</p>
     <ul>
       <li>Your messages are processed by our AI automation to provide responses</li>
-      <li>Message data is stored securely in Google Sheets for appointment management</li>
+      <li>Message data is stored securely in Google Sheets for booking and CRM management</li>
       <li>You can opt out of automated messages at any time by replying "STOP" or "UNSUBSCRIBE"</li>
       <li>WhatsApp's own Privacy Policy also applies to your use of the platform</li>
     </ul>
@@ -430,8 +420,8 @@ footer span { color: #D45555; }
     </div>
     <p>We do not sell, trade, or rent your personal information to third parties. Your data may be shared only in the following limited circumstances:</p>
     <ul>
-      <li><strong>With the clinic:</strong> Your appointment and patient details are shared with the clinic you are booking with, as this is the core purpose of the service</li>
-      <li><strong>Service providers:</strong> We use Google Sheets for data storage, WhatsApp Business API for messaging, and Google Gemini AI for intelligent responses — all under strict data agreements</li>
+      <li><strong>With the business:</strong> Your booking and customer details are shared with the business you are engaging with, as this is the core purpose of the service</li>
+      <li><strong>Service providers:</strong> We use Google Sheets for data storage, WhatsApp Business API for messaging, and AI APIs for intelligent responses — all under strict data agreements</li>
       <li><strong>Legal requirements:</strong> If required by law or government authority</li>
     </ul>
   </div>
@@ -443,7 +433,7 @@ footer span { color: #D45555; }
     </div>
     <p>Your data is stored in Google Sheets with restricted access. We implement the following security measures:</p>
     <ul>
-      <li>Access to patient data is restricted to authorised clinic staff and our automation system only</li>
+      <li>Access to customer data is restricted to authorised business staff and our automation system only</li>
       <li>All data transmission occurs over encrypted HTTPS connections</li>
       <li>WhatsApp messages are end-to-end encrypted by Meta's platform</li>
       <li>Regular access reviews to ensure only necessary personnel have data access</li>
@@ -471,7 +461,7 @@ footer span { color: #D45555; }
       <div class="section-num">07</div>
       <h2>Data Retention</h2>
     </div>
-    <p>We retain your data for as long as you are an active patient of the clinic using our services. Appointment records are kept for a minimum of 12 months for medical record purposes. If you opt out or request deletion, your data will be removed within 30 days.</p>
+    <p>We retain your data for as long as you are an active customer of the business using our services. Booking records are kept for a minimum of 12 months for record-keeping purposes. If you opt out or request deletion, your data will be removed within 30 days.</p>
   </div>
 
   <div class="policy-section" id="children">
