@@ -4,213 +4,354 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Privacy Policy — Automation Intelligence</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --green-dark: #1B5E20;
-    --green-mid: #2E7D32;
-    --green-light: #E8F5E9;
-    --accent: #4CAF50;
-    --text: #1a1a1a;
-    --muted: #555;
-    --border: #e0e0e0;
-    --bg: #fafaf8;
-  }
+:root {
+  --bg: #F5F2EB;
+  --bg-alt: #EDE9E0;
+  --bg-card: #FDFBF7;
+  --red: #8B1A1A;
+  --red-light: #A63232;
+  --brown: #5C4033;
+  --brown-light: #7A6258;
+  --text: #1A1A1A;
+  --text-muted: #6B6560;
+  --text-light: #9A9590;
+  --border: rgba(26,26,26,0.12);
+  --border-strong: rgba(26,26,26,0.25);
+  --line: rgba(26,26,26,0.08);
+}
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.8;
-  }
+html { scroll-behavior: smooth; }
 
-  header {
-    background: var(--green-dark);
-    padding: 24px 40px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
 
-  header .logo {
-    font-family: 'Playfair Display', serif;
-    color: white;
-    font-size: 22px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-  }
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: 
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 80px 80px;
+  pointer-events: none;
+  z-index: 0;
+}
 
-  header .tagline {
-    color: #A5D6A7;
-    font-size: 12px;
-    font-weight: 300;
-    margin-left: auto;
-  }
+/* ─── HEADER ─── */
+header {
+  background: var(--text);
+  padding: 18px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 3px solid var(--red);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
 
-  .hero {
-    background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 100%);
-    padding: 60px 40px;
-    text-align: center;
-    color: white;
-  }
+header .logo {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
 
-  .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 42px;
-    font-weight: 700;
-    margin-bottom: 12px;
-  }
+header .logo .red { color: #D45555; }
+header .logo .brown { color: #C4A882; }
 
-  .hero p {
-    color: #C8E6C9;
-    font-size: 15px;
-    font-weight: 300;
-  }
+header .back-link {
+  color: rgba(245,242,235,0.4);
+  text-decoration: none;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: color 0.3s;
+}
 
-  .hero .badge {
-    display: inline-block;
-    background: rgba(255,255,255,0.15);
-    border: 1px solid rgba(255,255,255,0.3);
-    color: white;
-    padding: 6px 16px;
-    border-radius: 20px;
-    font-size: 12px;
-    margin-top: 16px;
-  }
+header .back-link:hover { color: var(--bg); }
 
-  .container {
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 60px 40px;
-  }
+/* ─── HERO ─── */
+.hero {
+  background: var(--text);
+  padding: 80px 60px 60px;
+  color: var(--bg);
+  position: relative;
+}
 
-  .toc {
-    background: var(--green-light);
-    border-left: 4px solid var(--accent);
-    border-radius: 8px;
-    padding: 24px 28px;
-    margin-bottom: 48px;
-  }
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 60px;
+  right: 60px;
+  height: 1px;
+  background: rgba(245,242,235,0.1);
+}
 
-  .toc h3 {
-    font-family: 'Playfair Display', serif;
-    color: var(--green-dark);
-    margin-bottom: 12px;
-    font-size: 16px;
-  }
+.hero-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(245,242,235,0.4);
+  margin-bottom: 24px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
 
-  .toc ol {
-    padding-left: 20px;
-  }
+.hero-label::before {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: rgba(245,242,235,0.3);
+}
 
-  .toc ol li {
-    margin-bottom: 6px;
-  }
+.hero h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 600;
+  letter-spacing: -1px;
+  margin-bottom: 16px;
+}
 
-  .toc ol li a {
-    color: var(--green-mid);
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
-  }
+.hero h1 .red { color: #D45555; }
 
-  .toc ol li a:hover { text-decoration: underline; }
+.hero-sub {
+  font-size: 15px;
+  color: rgba(245,242,235,0.5);
+  max-width: 500px;
+  font-weight: 400;
+}
 
-  section {
-    margin-bottom: 48px;
-    padding-bottom: 48px;
-    border-bottom: 1px solid var(--border);
-  }
+.hero-badge {
+  display: inline-block;
+  border: 1px solid rgba(245,242,235,0.15);
+  color: rgba(245,242,235,0.6);
+  padding: 6px 16px;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-top: 24px;
+}
 
-  section:last-child { border-bottom: none; }
+/* ─── CONTAINER ─── */
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 60px 40px;
+  position: relative;
+  z-index: 1;
+}
 
-  h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 26px;
-    color: var(--green-dark);
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
+/* ─── TOC ─── */
+.toc {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 32px 36px;
+  margin-bottom: 56px;
+  position: relative;
+}
 
-  h2 .num {
-    background: var(--green-dark);
-    color: white;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 500;
-    flex-shrink: 0;
-  }
+.toc::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--red);
+}
 
-  p { margin-bottom: 16px; color: var(--muted); font-size: 15px; }
+.toc h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  color: var(--text);
+  margin-bottom: 16px;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
 
-  ul {
-    margin: 16px 0 16px 24px;
-    color: var(--muted);
-    font-size: 15px;
-  }
+.toc ol { padding-left: 20px; counter-reset: toc-counter; }
+.toc ol li { margin-bottom: 6px; counter-increment: toc-counter; }
 
-  ul li { margin-bottom: 8px; }
+.toc ol li a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 400;
+  transition: color 0.3s;
+}
 
-  .highlight-box {
-    background: var(--green-light);
-    border-radius: 8px;
-    padding: 20px 24px;
-    margin: 20px 0;
-    font-size: 14px;
-    color: var(--green-dark);
-    font-weight: 500;
-  }
+.toc ol li a:hover { color: var(--red); }
 
-  .contact-card {
-    background: var(--green-dark);
-    color: white;
-    border-radius: 12px;
-    padding: 32px;
-    margin-top: 48px;
-  }
+/* ─── SECTIONS ─── */
+.policy-section {
+  margin-bottom: 56px;
+  padding-bottom: 56px;
+  border-bottom: 1px solid var(--border);
+}
 
-  .contact-card h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 22px;
-    margin-bottom: 16px;
-  }
+.policy-section:last-child { border-bottom: none; }
 
-  .contact-card p { color: #C8E6C9; margin-bottom: 8px; font-size: 14px; }
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
 
-  .contact-card a { color: #A5D6A7; }
+.section-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--red);
+  letter-spacing: 2px;
+  min-width: 30px;
+}
 
-  footer {
-    background: #111;
-    color: #888;
-    text-align: center;
-    padding: 24px;
-    font-size: 13px;
-  }
+.section-header h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0.5px;
+}
 
-  footer span { color: #4CAF50; }
+.policy-section p {
+  margin-bottom: 16px;
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.policy-section ul {
+  margin: 16px 0 16px 0;
+  color: var(--text-muted);
+  font-size: 14px;
+  list-style: none;
+}
+
+.policy-section ul li {
+  margin-bottom: 10px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.policy-section ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 6px;
+  height: 6px;
+  background: var(--red);
+  border-radius: 50%;
+}
+
+/* ─── HIGHLIGHT BOX ─── */
+.highlight-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--red);
+  padding: 20px 24px;
+  margin: 24px 0;
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* ─── CONTACT CARD ─── */
+.contact-card {
+  background: var(--text);
+  color: var(--bg);
+  padding: 40px;
+  margin-top: 56px;
+  position: relative;
+}
+
+.contact-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--red);
+}
+
+.contact-card h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 18px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.contact-card p {
+  color: rgba(245,242,235,0.6);
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.contact-card a { color: #D45555; text-decoration: none; }
+.contact-card a:hover { text-decoration: underline; }
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--text);
+  border-top: 1px solid rgba(245,242,235,0.1);
+  padding: 32px 60px;
+  text-align: center;
+  font-size: 11px;
+  color: rgba(245,242,235,0.3);
+  letter-spacing: 1px;
+}
+
+footer span { color: #D45555; }
+
+/* ─── MOBILE ─── */
+@media (max-width: 900px) {
+  header { padding: 14px 24px; }
+  .hero { padding: 60px 24px 40px; }
+  .hero::after { left: 24px; right: 24px; }
+  .container { padding: 40px 24px; }
+  .toc { padding: 24px; }
+  .contact-card { padding: 28px 24px; }
+  footer { padding: 24px; }
+}
 </style>
 </head>
 <body>
 
 <header>
-  <div class="logo">Automation Intelligence</div>
-  <div class="tagline">UDYAM-TS-02-0333374 · Hyderabad, India</div>
+  <div class="logo">
+    <span class="red">Automation</span> <span class="brown">Intelligence</span>
+  </div>
+  <a href="index.html" class="back-link">← Back to Site</a>
 </header>
 
 <div class="hero">
-  <h1>Privacy Policy</h1>
-  <p>How we collect, use, and protect your information</p>
-  <div class="badge">Last Updated: May 2026</div>
+  <div class="hero-label">Legal Framework</div>
+  <h1>Privacy <span class="red">Policy</span></h1>
+  <p class="hero-sub">How we collect, use, and protect your information.</p>
+  <div class="hero-badge">Last Updated: May 2025</div>
 </div>
 
 <div class="container">
@@ -235,8 +376,11 @@
     This Privacy Policy applies to all services provided by Automation Intelligence, including WhatsApp-based clinic automation systems, appointment booking bots, and related automation services. By using our services, you agree to this policy.
   </div>
 
-  <section id="info">
-    <h2><span class="num">1</span>Information We Collect</h2>
+  <div class="policy-section" id="info">
+    <div class="section-header">
+      <div class="section-num">01</div>
+      <h2>Information We Collect</h2>
+    </div>
     <p>When you interact with our WhatsApp automation systems on behalf of our clinic clients, we may collect the following information:</p>
     <ul>
       <li>Your WhatsApp phone number and display name</li>
@@ -246,10 +390,13 @@
       <li>Response data from post-treatment follow up messages</li>
       <li>Opt-in and opt-out preferences for WhatsApp communications</li>
     </ul>
-  </section>
+  </div>
 
-  <section id="use">
-    <h2><span class="num">2</span>How We Use Your Information</h2>
+  <div class="policy-section" id="use">
+    <div class="section-header">
+      <div class="section-num">02</div>
+      <h2>How We Use Your Information</h2>
+    </div>
     <p>We use the information collected solely to provide clinic automation services, including:</p>
     <ul>
       <li>Processing and confirming appointment bookings</li>
@@ -260,10 +407,13 @@
       <li>Maintaining appointment records for clinic management</li>
     </ul>
     <p>We do not use your information for any marketing purposes unrelated to the clinic you are interacting with.</p>
-  </section>
+  </div>
 
-  <section id="whatsapp">
-    <h2><span class="num">3</span>WhatsApp Data Usage</h2>
+  <div class="policy-section" id="whatsapp">
+    <div class="section-header">
+      <div class="section-num">03</div>
+      <h2>WhatsApp Data Usage</h2>
+    </div>
     <p>Our automation systems operate through WhatsApp Business API, managed via Meta's official platform. By messaging a clinic that uses our system, you acknowledge:</p>
     <ul>
       <li>Your messages are processed by our AI automation to provide responses</li>
@@ -271,20 +421,26 @@
       <li>You can opt out of automated messages at any time by replying "STOP" or "UNSUBSCRIBE"</li>
       <li>WhatsApp's own Privacy Policy also applies to your use of the platform</li>
     </ul>
-  </section>
+  </div>
 
-  <section id="sharing">
-    <h2><span class="num">4</span>Data Sharing</h2>
+  <div class="policy-section" id="sharing">
+    <div class="section-header">
+      <div class="section-num">04</div>
+      <h2>Data Sharing</h2>
+    </div>
     <p>We do not sell, trade, or rent your personal information to third parties. Your data may be shared only in the following limited circumstances:</p>
     <ul>
       <li><strong>With the clinic:</strong> Your appointment and patient details are shared with the clinic you are booking with, as this is the core purpose of the service</li>
       <li><strong>Service providers:</strong> We use Google Sheets for data storage, WhatsApp Business API for messaging, and Google Gemini AI for intelligent responses — all under strict data agreements</li>
       <li><strong>Legal requirements:</strong> If required by law or government authority</li>
     </ul>
-  </section>
+  </div>
 
-  <section id="storage">
-    <h2><span class="num">5</span>Data Storage & Security</h2>
+  <div class="policy-section" id="storage">
+    <div class="section-header">
+      <div class="section-num">05</div>
+      <h2>Data Storage & Security</h2>
+    </div>
     <p>Your data is stored in Google Sheets with restricted access. We implement the following security measures:</p>
     <ul>
       <li>Access to patient data is restricted to authorised clinic staff and our automation system only</li>
@@ -292,10 +448,13 @@
       <li>WhatsApp messages are end-to-end encrypted by Meta's platform</li>
       <li>Regular access reviews to ensure only necessary personnel have data access</li>
     </ul>
-  </section>
+  </div>
 
-  <section id="rights">
-    <h2><span class="num">6</span>Your Rights</h2>
+  <div class="policy-section" id="rights">
+    <div class="section-header">
+      <div class="section-num">06</div>
+      <h2>Your Rights</h2>
+    </div>
     <p>You have the following rights regarding your personal data:</p>
     <ul>
       <li><strong>Access:</strong> Request a copy of the data we hold about you</li>
@@ -305,41 +464,53 @@
       <li><strong>Portability:</strong> Request your data in a readable format</li>
     </ul>
     <p>To exercise any of these rights, contact us at the details below.</p>
-  </section>
+  </div>
 
-  <section id="retention">
-    <h2><span class="num">7</span>Data Retention</h2>
+  <div class="policy-section" id="retention">
+    <div class="section-header">
+      <div class="section-num">07</div>
+      <h2>Data Retention</h2>
+    </div>
     <p>We retain your data for as long as you are an active patient of the clinic using our services. Appointment records are kept for a minimum of 12 months for medical record purposes. If you opt out or request deletion, your data will be removed within 30 days.</p>
-  </section>
+  </div>
 
-  <section id="children">
-    <h2><span class="num">8</span>Children's Privacy</h2>
+  <div class="policy-section" id="children">
+    <div class="section-header">
+      <div class="section-num">08</div>
+      <h2>Children's Privacy</h2>
+    </div>
     <p>Our services are not directed at children under the age of 13. We do not knowingly collect personal information from children. If you believe a child has provided us with their information, please contact us immediately for removal.</p>
-  </section>
+  </div>
 
-  <section id="changes">
-    <h2><span class="num">9</span>Changes to This Policy</h2>
+  <div class="policy-section" id="changes">
+    <div class="section-header">
+      <div class="section-num">09</div>
+      <h2>Changes to This Policy</h2>
+    </div>
     <p>We may update this Privacy Policy from time to time. When we do, we will update the date at the top of this page. Continued use of our services after any changes constitutes acceptance of the updated policy. We encourage you to review this policy periodically.</p>
-  </section>
+  </div>
 
-  <section id="contact">
-    <h2><span class="num">10</span>Contact Us</h2>
+  <div class="policy-section" id="contact">
+    <div class="section-header">
+      <div class="section-num">10</div>
+      <h2>Contact Us</h2>
+    </div>
     <p>If you have any questions, concerns, or requests regarding this Privacy Policy or your personal data, please contact us:</p>
-  </section>
+  </div>
 
   <div class="contact-card">
     <h3>Automation Intelligence</h3>
     <p>📍 Hyderabad, Telangana, India</p>
     <p>📞 +91 83413 71690</p>
-    <p>✉️ <a href="mailto:perjarishikesh@gmail.com">perjarishikesh@gmail.com</a></p>
-    <p>🌐 <a href="https://yourcliniconautomation.netlify.app">yourcliniconautomation.netlify.app</a></p>
+    <p>✉️ <a href="mailto:info@automationintelligence.in">info@automationintelligence.in</a></p>
+    <p>🌐 <a href="https://automationintelligence.in">automationintelligence.in</a></p>
     <p>🏢 MSME Registration: UDYAM-TS-02-0333374</p>
   </div>
 
 </div>
 
 <footer>
-  &copy; 2026 <span>Automation Intelligence</span> · All Rights Reserved · Hyderabad, India
+  © <script>document.write(new Date().getFullYear())</script> <span>Automation Intelligence</span> · All Rights Reserved · Hyderabad, India
 </footer>
 
 </body>
