@@ -33,6 +33,12 @@
   --border: rgba(26,26,26,0.12);
   --border-strong: rgba(26,26,26,0.25);
   --line: rgba(26,26,26,0.08);
+  --wa-dark: #075E54;
+  --wa-teal: #128C7E;
+  --wa-light: #25D366;
+  --wa-bg: #ECE5DD;
+  --wa-bot: #FFFFFF;
+  --wa-user: #DCF8C6;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -58,20 +64,6 @@ body::before {
   pointer-events: none;
   z-index: 0;
 }
-
-.cross::before,
-.cross::after {
-  content: '+';
-  position: absolute;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 18px;
-  font-weight: 300;
-  color: var(--text-light);
-  opacity: 0.4;
-  line-height: 1;
-}
-.cross::before { top: -9px; left: -9px; }
-.cross::after { bottom: -9px; right: -9px; }
 
 .circuit-dot {
   width: 8px;
@@ -297,107 +289,219 @@ nav {
   color: var(--text);
 }
 
+/* ─── PHONE MOCKUP ─── */
 .hero-visual {
   position: absolute;
   right: 60px;
   top: 50%;
   transform: translateY(-50%);
-  width: 400px;
+  width: 320px;
 }
 
-.chat-mockup {
-  background: var(--bg-card);
-  border: 1px solid var(--border-strong);
-  overflow: hidden;
+.phone-frame {
+  background: #1a1a1a;
+  border-radius: 40px;
+  padding: 10px;
+  box-shadow: 
+    0 50px 100px rgba(0,0,0,0.25),
+    0 0 0 1px rgba(255,255,255,0.08),
+    inset 0 0 0 1px rgba(255,255,255,0.05);
   position: relative;
 }
 
-.chat-mockup::before {
-  content: '';
+.phone-notch {
+  width: 100px;
+  height: 22px;
+  background: #1a1a1a;
+  border-radius: 0 0 16px 16px;
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: var(--red);
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
 }
 
-.chat-header {
-  background: var(--bg-alt);
-  padding: 16px 20px;
+.phone-screen {
+  border-radius: 30px;
+  overflow: hidden;
+  background: var(--wa-bg);
+}
+
+/* ─── WHATSAPP CHAT UI ─── */
+.wa-header {
+  background: var(--wa-dark);
+  padding: 36px 14px 10px;
   display: flex;
   align-items: center;
-  gap: 12px;
-  border-bottom: 1px solid var(--border);
+  gap: 10px;
 }
 
-.chat-avatar {
-  width: 36px;
-  height: 36px;
-  background: var(--red);
+.wa-back {
+  color: rgba(255,255,255,0.8);
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.wa-avatar {
+  width: 30px;
+  height: 30px;
+  background: var(--wa-teal);
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 14px;
-  color: white;
+  flex-shrink: 0;
 }
 
-.chat-name { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--text); }
-.chat-status { font-size: 11px; color: var(--text-light); }
+.wa-header-info { flex: 1; }
 
-.chat-body { padding: 20px; display: flex; flex-direction: column; gap: 12px; }
-
-.chat-msg {
-  max-width: 85%;
-  padding: 12px 16px;
+.wa-header-name {
+  font-family: 'Inter', sans-serif;
   font-size: 13px;
-  line-height: 1.6;
+  font-weight: 600;
+  color: white;
+  line-height: 1.2;
 }
 
-.chat-msg.bot {
-  background: var(--bg-alt);
-  border: 1px solid var(--border);
-  color: var(--text);
-  align-self: flex-start;
-}
-
-.chat-msg.user {
-  background: var(--text);
-  color: var(--bg);
-  align-self: flex-end;
-}
-
-.chat-msg .time {
+.wa-header-status {
+  font-family: 'Inter', sans-serif;
   font-size: 10px;
-  color: var(--text-light);
-  margin-top: 4px;
-  text-align: right;
+  color: rgba(255,255,255,0.6);
 }
 
-.chat-typing {
+.wa-header-actions {
   display: flex;
-  gap: 4px;
-  align-items: center;
-  padding: 12px 16px;
-  background: var(--bg-alt);
-  border: 1px solid var(--border);
-  width: fit-content;
+  gap: 14px;
+  color: rgba(255,255,255,0.7);
+  font-size: 16px;
 }
 
-.chat-typing span {
+.wa-chat {
+  padding: 10px 10px 14px;
+  min-height: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: var(--wa-bg);
+  position: relative;
+}
+
+/* WhatsApp doodle pattern */
+.wa-chat::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.wa-msg {
+  max-width: 82%;
+  padding: 5px 7px 2px;
+  border-radius: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12.5px;
+  line-height: 1.45;
+  position: relative;
+  z-index: 1;
+}
+
+.wa-msg.bot {
+  background: var(--wa-bot);
+  align-self: flex-start;
+  border-radius: 0 7px 7px 7px;
+  color: #1a1a1a;
+}
+
+.wa-msg.user {
+  background: var(--wa-user);
+  align-self: flex-end;
+  border-radius: 7px 0 7px 7px;
+  color: #1a1a1a;
+}
+
+.wa-msg .wa-time {
+  font-size: 9px;
+  color: rgba(0,0,0,0.35);
+  text-align: right;
+  margin-top: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 3px;
+}
+
+.wa-msg .wa-time .wa-check {
+  color: #34B7F1;
+  font-size: 10px;
+}
+
+.wa-input-bar {
+  background: #F0F0F0;
+  padding: 6px 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.wa-input {
+  flex: 1;
+  background: white;
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-size: 12px;
+  color: rgba(0,0,0,0.35);
+  font-family: 'Inter', sans-serif;
+}
+
+.wa-input-icons {
+  display: flex;
+  gap: 12px;
+  color: rgba(0,0,0,0.4);
+  font-size: 16px;
+}
+
+.wa-send {
+  width: 30px;
+  height: 30px;
+  background: var(--wa-dark);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.wa-typing {
+  display: flex;
+  gap: 3px;
+  align-items: center;
+  padding: 5px 7px;
+  background: var(--wa-bot);
+  border-radius: 0 7px 7px 7px;
+  width: fit-content;
+  align-self: flex-start;
+  z-index: 1;
+}
+
+.wa-typing span {
   width: 5px;
   height: 5px;
-  background: var(--text-light);
+  background: rgba(0,0,0,0.3);
   border-radius: 50%;
-  animation: typing 1.2s infinite;
+  animation: waTyping 1.2s infinite;
 }
 
-.chat-typing span:nth-child(2) { animation-delay: 0.2s; }
-.chat-typing span:nth-child(3) { animation-delay: 0.4s; }
+.wa-typing span:nth-child(2) { animation-delay: 0.2s; }
+.wa-typing span:nth-child(3) { animation-delay: 0.4s; }
 
-@keyframes typing {
-  0%, 100% { transform: translateY(0); opacity: 0.4; }
-  50% { transform: translateY(-4px); opacity: 1; }
+@keyframes waTyping {
+  0%, 100% { transform: translateY(0); opacity: 0.3; }
+  50% { transform: translateY(-3px); opacity: 1; }
 }
 
 /* ─── STATS ─── */
@@ -509,9 +613,7 @@ section { padding: 100px 60px; position: relative; }
   position: relative;
 }
 
-.service-card:hover {
-  background: var(--bg-alt);
-}
+.service-card:hover { background: var(--bg-alt); }
 
 .service-card-header {
   display: flex;
@@ -530,9 +632,7 @@ section { padding: 100px 60px; position: relative; }
   letter-spacing: 2px;
 }
 
-.service-icon {
-  font-size: 20px;
-}
+.service-icon { font-size: 20px; }
 
 .service-card h3 {
   font-family: 'Space Grotesk', sans-serif;
@@ -570,11 +670,8 @@ section { padding: 100px 60px; position: relative; }
 
 #why .section-label { color: rgba(245,242,235,0.4); }
 #why .section-label::before { background: rgba(245,242,235,0.3); }
-
 #why .section-title { color: var(--bg); }
 #why .section-title .red { color: #D45555; }
-#why .section-title .brown { color: #C4A882; }
-
 #why .section-sub { color: rgba(245,242,235,0.5); }
 
 .why-grid {
@@ -589,13 +686,10 @@ section { padding: 100px 60px; position: relative; }
 .why-card {
   background: var(--text);
   padding: 48px 36px;
-  position: relative;
   transition: background 0.3s;
 }
 
-.why-card:hover {
-  background: rgba(245,242,235,0.03);
-}
+.why-card:hover { background: rgba(245,242,235,0.03); }
 
 .why-card-num {
   font-family: 'Space Grotesk', sans-serif;
@@ -625,10 +719,7 @@ section { padding: 100px 60px; position: relative; }
   margin-bottom: 24px;
 }
 
-.why-card ul {
-  list-style: none;
-  margin-bottom: 28px;
-}
+.why-card ul { list-style: none; margin-bottom: 28px; }
 
 .why-card ul li {
   display: flex;
@@ -670,9 +761,7 @@ section { padding: 100px 60px; position: relative; }
 }
 
 /* ─── HOW IT WORKS ─── */
-#how {
-  background: var(--bg-card);
-}
+#how { background: var(--bg-card); }
 
 .how-grid {
   display: grid;
@@ -689,7 +778,6 @@ section { padding: 100px 60px; position: relative; }
   gap: 24px;
   padding: 28px 0;
   border-bottom: 1px solid var(--border);
-  position: relative;
 }
 
 .step:last-child { border-bottom: none; }
@@ -768,17 +856,8 @@ section { padding: 100px 60px; position: relative; }
   text-transform: uppercase;
 }
 
-.timeline-task {
-  font-size: 14px;
-  color: var(--text);
-  font-weight: 500;
-}
-
-.timeline-sub {
-  font-size: 12px;
-  color: var(--text-light);
-  margin-top: 2px;
-}
+.timeline-task { font-size: 14px; color: var(--text); font-weight: 500; }
+.timeline-sub { font-size: 12px; color: var(--text-light); margin-top: 2px; }
 
 /* ─── ABOUT ─── */
 #about {
@@ -831,11 +910,7 @@ section { padding: 100px 60px; position: relative; }
   color: var(--text);
 }
 
-.about-title {
-  font-size: 12px;
-  color: var(--text-light);
-  letter-spacing: 1px;
-}
+.about-title { font-size: 12px; color: var(--text-light); letter-spacing: 1px; }
 
 .about-card p {
   font-size: 14px;
@@ -872,9 +947,7 @@ section { padding: 100px 60px; position: relative; }
 .msme-badge .msme-num { font-size: 13px; color: var(--text); font-weight: 500; margin-top: 2px; }
 
 /* ─── CONTACT ─── */
-#contact {
-  background: var(--bg-alt);
-}
+#contact { background: var(--bg-alt); }
 
 .contact-grid {
   display: grid;
@@ -982,18 +1055,12 @@ section { padding: 100px 60px; position: relative; }
 
 .form-group input:focus,
 .form-group textarea:focus,
-.form-group select:focus {
-  border-color: var(--red);
-}
+.form-group select:focus { border-color: var(--red); }
 
 .form-group input.error,
 .form-group textarea.error { border-color: #D45555; }
 
-.form-group select option {
-  background: var(--bg);
-  color: var(--text);
-}
-
+.form-group select option { background: var(--bg); color: var(--text); }
 .form-group textarea { height: 100px; resize: none; }
 
 .form-submit {
@@ -1011,15 +1078,8 @@ section { padding: 100px 60px; position: relative; }
   transition: all 0.3s;
 }
 
-.form-submit:hover {
-  background: var(--red);
-  color: white;
-}
-
-.form-submit:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
+.form-submit:hover { background: var(--red); color: white; }
+.form-submit:disabled { opacity: 0.5; cursor: not-allowed; }
 
 .form-submit .spinner {
   display: inline-block;
@@ -1074,10 +1134,7 @@ section { padding: 100px 60px; position: relative; }
   transition: all 0.3s ease;
 }
 
-.toast.show {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
-}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
 /* ─── FOOTER ─── */
 footer {
@@ -1130,10 +1187,7 @@ footer {
   transition: all 0.7s ease;
 }
 
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+.reveal.visible { opacity: 1; transform: translateY(0); }
 
 /* ─── WHATSAPP FLOAT ─── */
 .wa-float {
@@ -1143,11 +1197,11 @@ footer {
   background: #25D366;
   width: 56px;
   height: 56px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
-  box-shadow: 0 4px 20px rgba(37,211,102,0.3);
+  box-shadow: 0 4px 20px rgba(37,211,102,0.4);
   text-decoration: none;
   z-index: 99;
   transition: all 0.3s;
@@ -1156,7 +1210,13 @@ footer {
 
 .wa-float:hover {
   transform: scale(1.1);
-  box-shadow: 0 8px 30px rgba(37,211,102,0.4);
+  box-shadow: 0 8px 30px rgba(37,211,102,0.5);
+}
+
+.wa-float svg {
+  width: 30px;
+  height: 30px;
+  fill: white;
 }
 
 @keyframes bounceIn {
@@ -1187,7 +1247,8 @@ footer {
   .contact-form { padding: 32px 24px; }
   footer { flex-direction: column; gap: 20px; padding: 32px 24px; text-align: center; }
   .footer-links { flex-wrap: wrap; justify-content: center; }
-  .wa-float { bottom: 20px; right: 20px; width: 48px; height: 48px; font-size: 20px; }
+  .wa-float { bottom: 20px; right: 20px; width: 48px; height: 48px; }
+  .wa-float svg { width: 26px; height: 26px; }
 }
 </style>
   <meta name="google-site-verification" content="fMJnXVGP9mSZp2E3HaQVcEvlOTZJjWzz9yiZ0RetNEw" />
@@ -1233,41 +1294,53 @@ footer {
       <a href="#services" class="btn-secondary">View Infrastructure</a>
     </div>
   </div>
-  <div class="hero-visual">
-    <div class="chat-mockup">
-      <div class="chat-header">
-        <div class="chat-avatar">🏢</div>
-        <div>
-          <div class="chat-name">Apex Business Solutions</div>
-          <div class="chat-status">Online · AI Agent</div>
+    <div class="hero-visual">
+    <div class="phone-frame">
+      <div class="phone-notch"></div>
+      <div class="phone-screen">
+        <div class="wa-header">
+          <div class="wa-back">‹</div>
+          <div class="wa-avatar">🏥</div>
+          <div class="wa-header-info">
+            <div class="wa-header-name">City Clinic</div>
+            <div class="wa-header-status">Business account · online</div>
+          </div>
+          <div class="wa-header-actions">📎 ⋮</div>
         </div>
-      </div>
-      <div class="chat-body">
-        <div class="chat-msg bot">
-          Welcome to Apex Business Solutions.<br><br>
-          How can I help you today?<br>
-          1. Book a Consultation<br>
-          2. Track My Enquiry<br>
-          3. Talk to the Team
-          <div class="time">10:32 AM</div>
+        <div class="wa-chat">
+          <div class="wa-msg bot">
+            Hi there! 👋 How can we help you today?
+            <div class="wa-time">9:41 AM</div>
+          </div>
+          <div class="wa-msg user">
+            What are your visiting hours?
+            <div class="wa-time">9:41 AM <span class="wa-check">✓✓</span></div>
+          </div>
+          <div class="wa-msg bot">
+            We're open Mon–Sat, 9:00 AM – 7:00 PM. Would you like to book an appointment?
+            <div class="wa-time">9:41 AM</div>
+          </div>
+          <div class="wa-msg user">
+            Yes please
+            <div class="wa-time">9:41 AM <span class="wa-check">✓✓</span></div>
+          </div>
+          <div class="wa-msg bot">
+            When works for you?<br>📅 Tomorrow<br>📅 Day after<br>📅 Next week
+            <div class="wa-time">9:41 AM</div>
+          </div>
+          <div class="wa-msg user">
+            Tomorrow
+            <div class="wa-time">9:41 AM <span class="wa-check">✓✓</span></div>
+          </div>
+          <div class="wa-msg bot">
+            ✅ Appointment confirmed!<br>Tomorrow, 11:00 AM with Dr. Sharma.<br>We'll send you a reminder. See you tomorrow! 😊
+            <div class="wa-time">9:41 AM</div>
+          </div>
         </div>
-        <div class="chat-msg user">
-          1
-          <div class="time">10:32 AM ✓✓</div>
-        </div>
-        <div class="chat-msg bot">
-          Great! When works best for you?<br><br>
-          □ Mon, 12 May<br>
-          □ Tue, 13 May<br>
-          □ Wed, 14 May
-          <div class="time">10:32 AM</div>
-        </div>
-        <div class="chat-msg user">
-          Tuesday please
-          <div class="time">10:33 AM ✓✓</div>
-        </div>
-        <div class="chat-typing">
-          <span></span><span></span><span></span>
+        <div class="wa-input-bar">
+          <div class="wa-input-icons">😀 📎</div>
+          <div class="wa-input">Type a message</div>
+          <div class="wa-send">🎤</div>
         </div>
       </div>
     </div>
@@ -1375,7 +1448,6 @@ footer {
         Zero inquiry leakage. Your team only handles conversations that move the needle.
       </div>
     </div>
-
     <div class="why-card reveal">
       <div class="why-card-num">02 / PIPELINE</div>
       <h3>Follow-Up That Never Sleeps, Never Forgets</h3>
@@ -1390,7 +1462,6 @@ footer {
         Higher response rates, shorter decision cycles, and zero manual chasing.
       </div>
     </div>
-
     <div class="why-card reveal">
       <div class="why-card-num">03 / COMMAND</div>
       <h3>Your Entire Sales Pipeline, Inside WhatsApp</h3>
@@ -1609,17 +1680,19 @@ footer {
   <div class="footer-copy">© <span id="currentYear"></span> Automation Intelligence · UDYAM-TS-02-0333374</div>
 </footer>
 
-<!-- WHATSAPP FLOAT -->
-<a href="https://wa.me/918341371690?text=Hi%20Rishikesh%2C%20I%20want%20to%20know%20more%20about%20business%20automation." class="wa-float" target="_blank" aria-label="Chat on WhatsApp">💬</a>
+<!-- WHATSAPP FLOAT — Real WhatsApp Icon -->
+<a href="https://wa.me/918341371690?text=Hi%20Rishikesh%2C%20I%20want%20to%20know%20more%20about%20business%20automation." class="wa-float" target="_blank" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16.004 0h-.008C7.174 0 0 7.176 0 16c0 3.5 1.132 6.742 3.054 9.38L1.054 31.2l6.054-1.952A15.914 15.914 0 0016.004 32C24.826 32 32 24.822 32 16S24.826 0 16.004 0zm9.314 22.61c-.39 1.1-1.932 2.014-3.17 2.282-.846.18-1.95.322-5.67-1.218-4.762-1.97-7.826-6.81-8.064-7.126-.23-.316-1.928-2.568-1.928-4.896s1.22-3.474 1.654-3.95c.434-.476.948-.596 1.264-.596.316 0 .632.004.908.016.292.014.684-.11 1.07.816.39.934 1.326 3.236 1.442 3.47.116.234.194.508.04.816-.156.316-.234.508-.47.784-.234.278-.494.62-.706.832-.236.236-.48.49-.206.962.274.47 1.222 2.016 2.624 3.266 1.804 1.608 3.324 2.106 3.796 2.34.47.234.744.196 1.018-.118.278-.316 1.186-1.382 1.502-1.858.316-.47.632-.39 1.066-.234.434.156 2.742 1.294 3.214 1.528.47.234.784.352.902.548.116.196.116 1.126-.274 2.226z"/>
+  </svg>
+</a>
 
 <!-- TOAST -->
 <div class="toast" id="toast"></div>
 
 <script>
-// Dynamic year
 document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-// Reveal on scroll
 const reveals = document.querySelectorAll('.reveal');
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry, i) => {
@@ -1631,13 +1704,11 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 reveals.forEach(el => observer.observe(el));
 
-// Nav scroll effect
 window.addEventListener('scroll', () => {
   const nav = document.querySelector('nav');
   nav.style.padding = window.scrollY > 50 ? '12px 60px' : '16px 60px';
 });
 
-// Mobile menu
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
 
@@ -1655,7 +1726,6 @@ document.querySelectorAll('.mobile-nav-link').forEach(link => {
   });
 });
 
-// Toast
 function showToast(message, duration = 3000) {
   const toast = document.getElementById('toast');
   toast.textContent = message;
@@ -1663,7 +1733,6 @@ function showToast(message, duration = 3000) {
   setTimeout(() => toast.classList.remove('show'), duration);
 }
 
-// Form submit via Web3Forms
 const demoForm = document.getElementById('demoForm');
 const submitBtn = document.getElementById('submitBtn');
 const formStatus = document.getElementById('formStatus');
@@ -1724,23 +1793,23 @@ demoForm.addEventListener('submit', async function(e) {
   }
 });
 
-// Chat mockup animation
-const chatMessages = document.querySelectorAll('.chat-msg');
-chatMessages.forEach((msg, i) => {
+// WhatsApp chat animation
+const waMsgs = document.querySelectorAll('.wa-msg');
+waMsgs.forEach((msg, i) => {
   msg.style.opacity = '0';
-  msg.style.transform = 'translateY(10px)';
-  msg.style.transition = 'all 0.4s ease';
+  msg.style.transform = 'translateY(8px)';
+  msg.style.transition = 'all 0.35s ease';
   setTimeout(() => {
     msg.style.opacity = '1';
     msg.style.transform = 'translateY(0)';
-  }, 800 + i * 600);
+  }, 600 + i * 500);
 });
 
-const chatTyping = document.querySelector('.chat-typing');
-if (chatTyping) {
-  chatTyping.style.opacity = '0';
-  chatTyping.style.transition = 'opacity 0.4s ease';
-  setTimeout(() => { chatTyping.style.opacity = '1'; }, 800 + chatMessages.length * 600);
+const waTyping = document.querySelector('.wa-typing');
+if (waTyping) {
+  waTyping.style.opacity = '0';
+  waTyping.style.transition = 'opacity 0.4s ease';
+  setTimeout(() => { waTyping.style.opacity = '1'; }, 600 + waMsgs.length * 500);
 }
 </script>
 
