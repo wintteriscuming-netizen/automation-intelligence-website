@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Automation Intelligence — Conversational Engineering for Businesses</title>
+<title>Automation Intelligence — SEO & WhatsApp Automation for Businesses</title>
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<meta name="description" content="Automation Intelligence builds WhatsApp AI automation systems for businesses in Hyderabad. Lead capture, appointment booking, follow-ups, Google reviews — all automated 24/7.">
+<meta name="description" content="Automation Intelligence helps businesses across India dominate Google search and automate lead capture. Specializing in Technical SEO, Google Business Profile, and WhatsApp AI automation.">
 
-<meta property="og:title" content="Automation Intelligence — WhatsApp AI Automation for Businesses">
-<meta property="og:description" content="Conversational engineering for high-value businesses. WhatsApp AI automation running 24/7.">
+<meta property="og:title" content="Automation Intelligence — Digital Growth & Automation">
+<meta property="og:description" content="Dominate local search with industry-specific SEO and 24/7 WhatsApp AI automation.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://automationintelligence.in/">
 <meta property="og:image" content="https://automationintelligence.in/og-image.png">
@@ -236,7 +236,7 @@ nav {
   font-size: 16px;
   color: var(--text-muted);
   line-height: 1.8;
-  max-width: 480px;
+  max-width: 520px;
   margin-bottom: 48px;
   font-weight: 400;
 }
@@ -282,6 +282,9 @@ nav {
   transition: all 0.3s;
   letter-spacing: 2px;
   text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .btn-secondary:hover {
@@ -481,7 +484,7 @@ nav {
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 0;
   background: var(--bg-card);
   position: relative;
@@ -505,7 +508,7 @@ nav {
 
 .stat-num {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 44px;
+  font-size: clamp(28px, 4vw, 44px);
   font-weight: 600;
   color: var(--text);
   line-height: 1;
@@ -566,7 +569,8 @@ section { padding: 100px 60px; position: relative; }
 }
 
 /* ─── SERVICES ─── */
-#services { background: var(--bg); }
+#services-seo { background: var(--bg-alt); }
+#services-wa { background: var(--bg); }
 
 .services-grid {
   display: grid;
@@ -633,6 +637,94 @@ section { padding: 100px 60px; position: relative; }
   font-weight: 500;
 }
 
+/* ─── CASE STUDY ─── */
+#case-study {
+  background: var(--text);
+  color: var(--bg);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+#case-study .section-label { color: rgba(245,242,235,0.4); }
+#case-study .section-label::before { background: rgba(245,242,235,0.3); }
+#case-study .section-title { color: var(--bg); }
+#case-study .section-title .red { color: #D45555; }
+#case-study .section-sub { color: rgba(245,242,235,0.6); }
+
+.case-study-card {
+  background: rgba(245,242,235,0.05);
+  border: 1px solid rgba(245,242,235,0.1);
+  padding: 48px;
+  position: relative;
+}
+
+.case-study-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--red);
+}
+
+.case-study-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(245,242,235,0.1);
+}
+
+.case-study-avatar {
+  width: 56px;
+  height: 56px;
+  background: var(--red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: white;
+}
+
+.case-study-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--bg);
+}
+
+.case-study-title {
+  font-size: 12px;
+  color: rgba(245,242,235,0.5);
+  letter-spacing: 1px;
+}
+
+.case-study-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.cs-stat-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(28px, 3vw, 36px);
+  font-weight: 600;
+  color: #D45555;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.cs-stat-label {
+  font-size: 11px;
+  color: rgba(245,242,235,0.5);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
 /* ─── WHY BETTER ─── */
 #why {
   background: var(--text);
@@ -647,7 +739,7 @@ section { padding: 100px 60px; position: relative; }
 
 .why-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1px;
   margin-top: 64px;
   background: rgba(245,242,235,0.08);
@@ -656,7 +748,7 @@ section { padding: 100px 60px; position: relative; }
 
 .why-card {
   background: var(--text);
-  padding: 48px 36px;
+  padding: 40px 32px;
   transition: background 0.3s;
 }
 
@@ -668,17 +760,17 @@ section { padding: 100px 60px; position: relative; }
   font-weight: 600;
   color: #D45555;
   letter-spacing: 2px;
-  margin-bottom: 28px;
-  padding-bottom: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 14px;
   border-bottom: 1px solid rgba(245,242,235,0.1);
 }
 
 .why-card h3 {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
   color: var(--bg);
-  margin-bottom: 16px;
+  margin-bottom: 14px;
   letter-spacing: 0.5px;
   line-height: 1.3;
 }
@@ -687,152 +779,12 @@ section { padding: 100px 60px; position: relative; }
   font-size: 13px;
   color: rgba(245,242,235,0.45);
   line-height: 1.7;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
-
-.why-card ul { list-style: none; margin-bottom: 28px; }
-
-.why-card ul li {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  padding: 8px 0;
-  font-size: 13px;
-  color: rgba(245,242,235,0.6);
-  line-height: 1.6;
-}
-
-.why-card ul li::before {
-  content: '✓';
-  color: #D45555;
-  font-weight: 700;
-  flex-shrink: 0;
-  margin-top: 1px;
-}
-
-.why-result {
-  background: rgba(139,26,26,0.15);
-  border: 1px solid rgba(139,26,26,0.25);
-  padding: 14px 18px;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 12px;
-  color: rgba(245,242,235,0.8);
-  letter-spacing: 0.5px;
-  line-height: 1.5;
-}
-
-.why-result strong {
-  color: #D45555;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  font-size: 10px;
-  display: block;
-  margin-bottom: 4px;
-}
-
-/* ─── HOW IT WORKS ─── */
-#how { background: var(--bg-card); }
-
-.how-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-  margin-top: 64px;
-}
-
-.steps { display: flex; flex-direction: column; gap: 0; }
-
-.step {
-  display: flex;
-  gap: 24px;
-  padding: 28px 0;
-  border-bottom: 1px solid var(--border);
-}
-
-.step:last-child { border-bottom: none; }
-
-.step-num {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--red);
-  letter-spacing: 2px;
-  min-width: 30px;
-  padding-top: 2px;
-}
-
-.step-content h3 {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 6px;
-  color: var(--text);
-}
-
-.step-content p {
-  font-size: 13px;
-  color: var(--text-muted);
-  line-height: 1.7;
-  font-weight: 400;
-}
-
-.how-visual {
-  background: var(--bg);
-  border: 1px solid var(--border);
-  padding: 40px;
-  position: relative;
-}
-
-.how-visual::before {
-  content: '+';
-  position: absolute;
-  top: -8px;
-  right: -8px;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 16px;
-  color: var(--text-light);
-  opacity: 0.4;
-}
-
-.timeline { display: flex; flex-direction: column; gap: 0; }
-
-.timeline-item {
-  display: flex;
-  gap: 16px;
-  padding: 16px 0;
-  border-bottom: 1px solid var(--line);
-}
-
-.timeline-item:last-child { border-bottom: none; }
-
-.timeline-dot {
-  width: 8px;
-  height: 8px;
-  background: var(--red);
-  border-radius: 50%;
-  margin-top: 4px;
-  flex-shrink: 0;
-  box-shadow: 0 0 0 3px rgba(139,26,26,0.12);
-}
-
-.timeline-day {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 10px;
-  color: var(--red);
-  font-weight: 600;
-  margin-bottom: 4px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-}
-
-.timeline-task { font-size: 14px; color: var(--text); font-weight: 500; }
-.timeline-sub { font-size: 12px; color: var(--text-light); margin-top: 2px; }
 
 /* ─── ABOUT ─── */
 #about {
-  background: var(--bg);
+  background: var(--bg-alt);
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
@@ -917,8 +869,75 @@ section { padding: 100px 60px; position: relative; }
 .msme-badge .msme-label { font-size: 9px; color: #D4AF37; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; }
 .msme-badge .msme-num { font-size: 13px; color: var(--text); font-weight: 500; margin-top: 2px; }
 
+/* ─── HIRING ─── */
+#hiring {
+  background: var(--bg);
+  position: relative;
+}
+
+.hiring-card {
+  background: var(--text);
+  color: var(--bg);
+  border: 1px solid var(--text);
+  padding: 48px;
+  position: relative;
+  margin-top: 48px;
+  max-width: 800px;
+}
+
+.hiring-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--red);
+}
+
+.hiring-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 24px 0 32px;
+}
+
+.hiring-tag {
+  border: 1px solid rgba(245,242,235,0.15);
+  color: rgba(245,242,235,0.7);
+  font-size: 10px;
+  padding: 5px 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.btn-apply {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg);
+  color: var(--text);
+  padding: 16px 36px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.btn-apply:hover {
+  background: #D45555;
+  color: white;
+  transform: translateY(-2px);
+}
+
 /* ─── CONTACT ─── */
-#contact { background: var(--bg-alt); }
+#contact { background: var(--bg); }
 
 .contact-grid {
   display: grid;
@@ -1032,7 +1051,7 @@ section { padding: 100px 60px; position: relative; }
 .form-group textarea.error { border-color: #D45555; }
 
 .form-group select option { background: var(--bg); color: var(--text); }
-.form-group textarea { height: 100px; resize: none; }
+.form-group textarea { height: 80px; resize: none; }
 
 .form-submit {
   width: 100%;
@@ -1116,6 +1135,7 @@ footer {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
+  gap: 24px;
 }
 
 .footer-logo {
@@ -1130,7 +1150,7 @@ footer {
 .footer-logo .red { color: #D45555; }
 .footer-logo .brown { color: #C4A882; }
 
-.footer-links { display: flex; gap: 28px; }
+.footer-links { display: flex; gap: 28px; flex-wrap: wrap; }
 
 .footer-links a {
   color: rgba(245,242,235,0.4);
@@ -1143,6 +1163,11 @@ footer {
 }
 
 .footer-links a:hover { color: var(--bg); }
+
+.footer-social { display: flex; gap: 16px; align-items: center; }
+.footer-social a { color: rgba(245,242,235,0.4); transition: color 0.3s; display: flex; align-items: center; }
+.footer-social a:hover { color: var(--bg); }
+.footer-social svg { width: 18px; height: 18px; fill: currentColor; }
 
 .footer-copy { font-size: 11px; color: rgba(245,242,235,0.3); letter-spacing: 1px; }
 
@@ -1226,15 +1251,16 @@ footer {
     min-height: 260px;
   }
 
-  .stats { grid-template-columns: 1fr; padding: 32px 24px; gap: 0; }
+  .stats { grid-template-columns: repeat(2, 1fr); padding: 32px 24px; gap: 0; }
   .stat-item:not(:last-child)::after { display: none; }
-  .stat-item:not(:last-child) { border-bottom: 1px solid var(--border); padding-bottom: 20px; }
+  .stat-item { border-bottom: 1px solid var(--border); padding-bottom: 20px; }
   section { padding: 60px 24px; }
   .services-grid { grid-template-columns: 1fr; }
   .service-card { padding: 28px 24px; }
   .why-grid { grid-template-columns: 1fr; }
   .why-card { padding: 32px 24px; }
-  .how-grid { grid-template-columns: 1fr; gap: 40px; }
+  #case-study { grid-template-columns: 1fr; gap: 40px; }
+  .case-study-card { padding: 32px 24px; }
   #about { grid-template-columns: 1fr; padding: 60px 24px; }
   .about-card { padding: 32px 24px; }
   .contact-grid { grid-template-columns: 1fr; }
@@ -1245,29 +1271,20 @@ footer {
   .wa-float svg { width: 26px; height: 26px; }
 }
 </style>
-  <meta name="google-site-verification" content="5ESyq07wDT2f8B3qOu12J8its3qr6568YYkRnsnd6F0" />
+  <meta name="google-site-verification" content="fMJnXVGP9mSZp2E3HaQVcEvlOTZJjWzz9yiZ0RetNEw" />
   <meta name="facebook-domain-verification" content="6gsje1o5a2cf0ddndj0oj4sil7uveu" />
 </head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-CLCTGL1H7X"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-CLCTGL1H7X');
-</script>
 <body>
 
 <!-- NAVBAR -->
 <nav>
   <div class="nav-logo"><span class="red">Automation</span><br><span class="brown">Intelligence</span></div>
   <ul class="nav-links">
-    <li><a href="#services">Services</a></li>
-    <li><a href="#why">Advantage</a></li>
-    <li><a href="#how">Process</a></li>
+    <li><a href="#services-seo">SEO & GBP</a></li>
+    <li><a href="#services-wa">WhatsApp Automation</a></li>
+    <li><a href="#case-study">Case Study</a></li>
     <li><a href="#about">About</a></li>
-    <li><a href="#contact" class="nav-cta">Get Started</a></li>
+    <li><a href="#contact" class="nav-cta">Free Audit</a></li>
   </ul>
   <div class="nav-hamburger" id="hamburger" aria-label="Menu" role="button" tabindex="0">
     <span></span><span></span><span></span>
@@ -1276,11 +1293,11 @@ footer {
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#services" class="mobile-nav-link">Services</a>
-  <a href="#why" class="mobile-nav-link">Advantage</a>
-  <a href="#how" class="mobile-nav-link">Process</a>
+  <a href="#services-seo" class="mobile-nav-link">SEO & GBP</a>
+  <a href="#services-wa" class="mobile-nav-link">WhatsApp Automation</a>
+  <a href="#case-study" class="mobile-nav-link">Case Study</a>
   <a href="#about" class="mobile-nav-link">About</a>
-  <a href="#contact" class="mobile-nav-link" style="color: var(--red);">Get Started →</a>
+  <a href="#contact" class="mobile-nav-link" style="color: var(--red);">Free Audit →</a>
 </div>
 
 <!-- HERO -->
@@ -1288,13 +1305,13 @@ footer {
   <div class="hero-content">
     <div class="hero-badge">
       <div class="circuit-dot"></div>
-      WhatsApp AI Automation · Hyderabad
+      Digital Growth · Automation · Hyderabad
     </div>
-    <h1>Conversational <span class="red">Engineering</span> For <span class="brown">High-Value</span> Businesses.</h1>
-    <p>We replace manual chat handling with an automated backend ecosystem. Lead capture, appointment booking, customer follow-ups, Google reviews — all running 24/7 without a single manual message via official Meta API.</p>
+    <h1>Dominate <span class="red">Google Search</span> & Convert Leads on <span class="brown">Autopilot.</span></h1>
+    <p>We engineer digital growth for businesses across India. Rank higher on Google with technical SEO & GBP management, and capture every lead 24/7 with WhatsApp AI automation. No third-party dependencies, no waiting on approvals.</p>
     <div class="hero-actions">
-      <a href="#contact" class="btn-primary">Book a Free Demo →</a>
-      <a href="#services" class="btn-secondary">View Infrastructure</a>
+      <a href="#contact" class="btn-primary">Get a Free PDF Audit →</a>
+      <a href="#services-seo" class="btn-secondary">View SEO Services</a>
     </div>
   </div>
   <div class="hero-visual">
@@ -1303,9 +1320,9 @@ footer {
       <div class="phone-screen">
         <div class="wa-header">
           <div class="wa-back">‹</div>
-          <div class="wa-avatar">🏥</div>
+          <div class="wa-avatar">🏢</div>
           <div class="wa-header-info">
-            <div class="wa-header-name">City Clinic</div>
+            <div class="wa-header-name">Apex Business Solutions</div>
             <div class="wa-header-status">Business account · online</div>
           </div>
           <div class="wa-header-actions">📎 ⋮</div>
@@ -1336,7 +1353,7 @@ footer {
             <div class="wa-time">9:41 AM <span class="wa-check">✓✓</span></div>
           </div>
           <div class="wa-msg bot">
-            ✅ Appointment confirmed!<br>Tomorrow, 11:00 AM with Dr. Sharma.<br>We'll send you a reminder. See you tomorrow! 😊
+            ✅ Appointment confirmed!<br>Tomorrow, 11:00 AM.<br>We'll send you a reminder. See you tomorrow! 😊
             <div class="wa-time">9:41 AM</div>
           </div>
         </div>
@@ -1353,24 +1370,65 @@ footer {
 <!-- STATS -->
 <div class="stats">
   <div class="stat-item reveal">
+    <div class="stat-num"><span>+</span>71<span>%</span></div>
+    <div class="stat-label">Organic Clicks (30 Days)</div>
+  </div>
+  <div class="stat-item reveal">
+    <div class="stat-num">91<span>/100</span></div>
+    <div class="stat-label">Desktop PageSpeed</div>
+  </div>
+  <div class="stat-item reveal">
+    <div class="stat-num">329</div>
+    <div class="stat-label">Direct Calls via GBP</div>
+  </div>
+  <div class="stat-item reveal">
     <div class="stat-num">24<span>/7</span></div>
-    <div class="stat-label">Always Available</div>
-  </div>
-  <div class="stat-item reveal">
-    <div class="stat-num">∞</div>
-    <div class="stat-label">Automation Workflows</div>
-  </div>
-  <div class="stat-item reveal">
-    <div class="stat-num">7<span>-10</span></div>
-    <div class="stat-label">Days to Go Live</div>
+    <div class="stat-label">WhatsApp AI Capture</div>
   </div>
 </div>
 
-<!-- SERVICES -->
-<section id="services">
-  <div class="section-label">Core Infrastructure</div>
-  <h2 class="section-title">Enterprise Standards.<br><span class="brown">Built To Last.</span></h2>
-  <p class="section-sub">No third-party modifications. Custom logic engine configured for your business's exact operational funnel.</p>
+<!-- SERVICES: SEO & GBP (Primary) -->
+<section id="services-seo">
+  <div class="section-label">Pillar 01 · Search & Local SEO</div>
+  <h2 class="section-title">Dominate <span class="red">Google Search</span> & Maps.</h2>
+  <p class="section-sub">We deploy industry-specific schema markup, local-intent keyword research, and multi-location GBP management to ensure you rank where it matters most.</p>
+
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-card-header">
+        <div class="service-num">01 / FOUNDATION</div>
+        <div class="service-icon">⚙️</div>
+      </div>
+      <h3>Technical SEO Setup</h3>
+      <p>Full website speed audits, schema markup implementation (LocalBusiness, Service, FAQ), XML sitemap optimization, WebP image conversion, and broken link fixes. Built for rich snippets.</p>
+      <span class="service-tag">Architecture First</span>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-card-header">
+        <div class="service-num">02 / GROWTH</div>
+        <div class="service-icon">📍</div>
+      </div>
+      <h3>GBP Management & Local SEO</h3>
+      <p>Profile setup and verification for all locations, category optimization, weekly posts, Q&A seeding, NAP consistency across directories, and competitor gap analysis.</p>
+      <span class="service-tag">Map Domination</span>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-card-header">
+        <div class="service-num">03 / SCALE</div>
+        <div class="service-icon">✍️</div>
+      </div>
+      <h3>Content Engine</h3>
+      <p>SEO-optimized articles with local-intent keyword research, topic cluster strategy, and internal linking architecture. Subject-matter expert content that builds sustained authority.</p>
+      <span class="service-tag">Authority Building</span>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES: WHATSAPP AUTOMATION -->
+<section id="services-wa">
+  <div class="section-label">Pillar 02 · WhatsApp Automation</div>
+  <h2 class="section-title">AI Conversational <span class="brown">Backend Ecosystem.</span></h2>
+  <p class="section-sub">Once SEO drives the traffic, our custom AI backend takes over. Capturing leads, booking appointments, and following up 24/7 without a single manual message.</p>
 
   <div class="services-grid">
     <div class="service-card reveal">
@@ -1400,32 +1458,39 @@ footer {
       <p>After every interaction, the system checks on your customer. How was their experience? Any concerns? This builds loyalty and catches issues early — automatically.</p>
       <span class="service-tag">Customer Loyalty</span>
     </div>
-    <div class="service-card reveal">
-      <div class="service-card-header">
-        <div class="service-num">04 / REPUTATION</div>
-        <div class="service-icon">⭐</div>
-      </div>
-      <h3>Google Review Generation</h3>
-      <p>Satisfied customers automatically receive a review request. Only positive sentiment triggers it. Watch your Google rating climb and new customers discover you organically.</p>
-      <span class="service-tag">Organic Growth</span>
+  </div>
+</section>
+
+<!-- CASE STUDY -->
+<section id="case-study">
+  <div>
+    <div class="section-label">The Proof</div>
+    <h2 class="section-title">Real Metrics. <span class="red">Real Revenue.</span></h2>
+<p class="section-sub" style="margin-bottom:40px;">For a leading endocrinology & diabetes clinic in Hyderabad, we deployed industry-specific MedicalClinic schema, complete GBP optimization for multiple branch locations, and a targeted content engine. The results in 30 days:</p>    <div class="about-tags">
+      <span class="about-tag">MedicalClinic Schema</span>
+      <span class="about-tag">Multi-Location GBP</span>
+      <span class="about-tag">4 Articles Live</span>
+      <span class="about-tag">Avg SEO Score 81.5</span>
     </div>
-    <div class="service-card reveal">
-      <div class="service-card-header">
-        <div class="service-num">05 / RECOVERY</div>
-        <div class="service-icon">🔄</div>
+  </div>
+
+  <div class="case-study-card reveal">
+    <div class="case-study-header">
+      <div class="case-study-avatar">🩺</div>
+      <div>
+       <!--- <div class="case-study-name">Dr. Shalini Patlolla</div>
+        <div class="case-study-title">Endocrinologist · Asian Diabetes Center</div> -->
+      <div class="case-study-name">Chief Endocrinologist</div>
+      <div class="case-study-title">A Leading Diabetes Clinic · Hyderabad</div>  
       </div>
-      <h3>Customer Reengagement</h3>
-      <p>Customers who haven't engaged in months receive a personalised message bringing them back. Your old contact list becomes a recurring revenue engine — automatically.</p>
-      <span class="service-tag">Revenue Recovery</span>
     </div>
-    <div class="service-card reveal">
-      <div class="service-card-header">
-        <div class="service-num">06 / REPORTING</div>
-        <div class="service-icon">📊</div>
-      </div>
-      <h3>Monthly Performance Report</h3>
-      <p>Every month you receive a detailed report — bookings captured, reminders sent, customers reactivated, reviews generated. See the exact value we deliver.</p>
-      <span class="service-tag">Full Transparency</span>
+    <div class="case-study-stats">
+      <div><div class="cs-stat-num">+71.6%</div><div class="cs-stat-label">Organic Clicks</div></div>
+      <div><div class="cs-stat-num">+78.6%</div><div class="cs-stat-label">Search Impressessions</div></div>
+      <div><div class="cs-stat-num">611</div><div class="cs-stat-label">Direction Requests</div></div>
+      <div><div class="cs-stat-num">329</div><div class="cs-stat-label">Direct Phone Calls</div></div>
+      <div><div class="cs-stat-num">8.4 → 6.6</div><div class="cs-stat-label">Avg Position Jump</div></div>
+      <div><div class="cs-stat-num">91/100</div><div class="cs-stat-label">Desktop PageSpeed</div></div>
     </div>
   </div>
 </section>
@@ -1433,129 +1498,29 @@ footer {
 <!-- WHY BETTER -->
 <section id="why">
   <div class="section-label">Competitive Architecture</div>
-  <h2 class="section-title">Why Automation Intelligence <span class="red">Outperforms</span> Conventional Tools.</h2>
-  <p class="section-sub">Generic software wasn't built for your operations. We were.</p>
+  <h2 class="section-title">Why Automation Intelligence <span class="brown">Outperforms</span> Agencies.</h2>
+  <p class="section-sub">Generic agencies use cookie-cutter templates. We deploy industry-specific schema, compliance-aware technical implementation, and real customer acquisition metrics.</p>
 
   <div class="why-grid">
     <div class="why-card reveal">
-      <div class="why-card-num">01 / CAPTURE</div>
-      <h3>Every Inquiry Answered Before It Goes Cold</h3>
-      <p>Most inquiries die in silence — no reply, no booking, no revenue. Our system eliminates that gap entirely.</p>
-      <ul>
-        <li>AI engages every incoming message the instant it arrives</li>
-        <li>Prospects are filtered through your custom qualification criteria</li>
-        <li>Ready-to-convert leads are routed directly to your team</li>
-      </ul>
-      <div class="why-result">
-        <strong>Net Effect</strong>
-        Zero inquiry leakage. Your team only handles conversations that move the needle.
-      </div>
+      <div class="why-card-num">01 / REVENUE ENGINEERING</div>
+      <h3>End-to-End Growth Systems</h3>
+      <p>We don't just build traffic; we build revenue. SEO gets them to your Google Business Profile, and our custom WhatsApp AI captures, qualifies, and books them instantly.</p>
     </div>
     <div class="why-card reveal">
-      <div class="why-card-num">02 / PIPELINE</div>
-      <h3>Follow-Up That Never Sleeps, Never Forgets</h3>
-      <p>Manual follow-up is inconsistent and exhausting. Our pipeline logic ensures every prospect stays in motion — no dropped threads.</p>
-      <ul>
-        <li>Triggered messages adapt to where each lead stands in the journey</li>
-        <li>Automated nudges re-engage prospects who've gone silent</li>
-        <li>Every reply is logged — your team steps in only when it counts</li>
-      </ul>
-      <div class="why-result">
-        <strong>Net Effect</strong>
-        Higher response rates, shorter decision cycles, and zero manual chasing.
-      </div>
+      <div class="why-card-num">02 / DIRECT API ACCESS</div>
+      <h3>Zero Third-Party Dependencies</h3>
+      <p>We build exclusively on official paths via Meta API. No risky automation tools that get your account suspended. Custom logic engines adapt to your exact operational funnel.</p>
     </div>
     <div class="why-card reveal">
-      <div class="why-card-num">03 / COMMAND</div>
-      <h3>Your Entire Sales Pipeline, Inside WhatsApp</h3>
-      <p>Juggling multiple tools is operational overhead. We centralise every conversation, detail, and follow-up into one interface your team already uses.</p>
-      <ul>
-        <li>Live context — last message, current stage, history — all visible while chatting</li>
-        <li>Internal notes, call logs, and lead sorting without leaving the platform</li>
-        <li>Saved responses and timed reminders to close deals faster</li>
-      </ul>
-      <div class="why-result">
-        <strong>Net Effect</strong>
-        Complete pipeline visibility, tighter tracking, and faster closures — all in one place.
-      </div>
+      <div class="why-card-num">03 / REAL METRICS</div>
+      <h3>ROI Over Vanity Analytics</h3>
+      <p>Clients receive monthly PDF reports tracking real customer acquisition: direct phone calls, direction requests, and bookings generated. We measure revenue, not just impressions.</p>
     </div>
-  </div>
-</section>
-
-<!-- HOW IT WORKS -->
-<section id="how">
-  <div class="section-label">Executive Architecture</div>
-  <h2 class="section-title">Direct Database Sync.<br><span class="red">Zero Human Latency.</span></h2>
-  <p class="section-sub">From first conversation to fully automated business — we handle everything. No third-party modifications.</p>
-
-  <div class="how-grid">
-    <div class="steps reveal">
-      <div class="step">
-        <div class="step-num">01</div>
-        <div class="step-content">
-          <h3>We Collect Your Details</h3>
-          <p>Working hours, service types, existing customer list. A simple form — takes 10 minutes of your time.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">02</div>
-        <div class="step-content">
-          <h3>We Build Everything</h3>
-          <p>All workflows customised for your business. Your WhatsApp number connected to our AI system. Tested internally before going live.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">03</div>
-        <div class="step-content">
-          <h3>Live Demo at Your Location</h3>
-          <p>We come to you, you message your own business number and see the AI respond live. Full walkthrough of every automation.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">04</div>
-        <div class="step-content">
-          <h3>Ongoing Management</h3>
-          <p>Monthly reports, fixes within 24 hours, upgrades included. We manage everything so you never have to think about it.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="how-visual reveal">
-      <div style="font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:24px;font-weight:600;">Onboarding Timeline</div>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div>
-            <div class="timeline-day">Day 0 — You confirm</div>
-            <div class="timeline-task">Fill onboarding form</div>
-            <div class="timeline-sub">Business details, hours, WhatsApp number</div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div>
-            <div class="timeline-day">Day 1 — We setup</div>
-            <div class="timeline-task">WhatsApp API connected</div>
-            <div class="timeline-sub">All workflows built and configured</div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div>
-            <div class="timeline-day">Day 2-3 — We test</div>
-            <div class="timeline-task">Internal testing done</div>
-            <div class="timeline-sub">Every workflow verified end to end</div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div>
-            <div class="timeline-day">Day 7 — You go live</div>
-            <div class="timeline-task">Bot is live on your number</div>
-            <div class="timeline-sub">Customers start engaging automatically</div>
-          </div>
-        </div>
-      </div>
+    <div class="why-card reveal">
+      <div class="why-card-num">04 / RAPID DEPLOYMENT</div>
+      <h3>Speed To Market</h3>
+      <p>Our process moves fast. Deep audit in Week 1, technical foundation fixes in Week 2, GBP optimization in Week 3, and content deployment scaling from Week 4 onward.</p>
     </div>
   </div>
 </section>
@@ -1564,13 +1529,15 @@ footer {
 <section id="about">
   <div>
     <div class="section-label">System Engineering</div>
-    <h2 class="section-title">Built in <span class="brown">Hyderabad.</span><br>For <span class="red">Hyderabad</span> Businesses.</h2>
-    <p class="section-sub" style="margin-bottom:40px;">We are a registered automation company focused on making Indian businesses run smarter. Not a generic software company — we understand the specific challenges of business operations in India.</p>
+    <h2 class="section-title">Built in <span class="brown">Hyderabad.</span><br>Serving <span class="red">All India.</span></h2>
+    <p class="section-sub" style="margin-bottom:40px;">Founded with a vision to help local businesses dominate search results, we started with WhatsApp automation tools but pivoted to SEO services after recognizing that businesses were consistently asking for one thing: "Can you help us get found on Google?"</p>
+    <p class="section-sub" style="margin-bottom:40px;">Today, we operate on a two-pillar growth model. <strong>Pillar One is SEO & GBP:</strong> We deploy industry-specific schema markup, local-intent keyword research, and multi-location GBP management to ensure you rank at the top. <strong>Pillar Two is WhatsApp Automation:</strong> Once the traffic hits, our custom AI backend ecosystem takes over—capturing leads, booking appointments, and following up 24/7 without a single manual message.</p>
     <div class="about-tags">
+      <span class="about-tag">Rank Math Pro</span>
+      <span class="about-tag">Ahrefs</span>
+      <span class="about-tag">Google Search Console</span>
       <span class="about-tag">Official Meta API</span>
-      <span class="about-tag">AI Automation</span>
-      <span class="about-tag">n8n Workflows</span>
-      <span class="about-tag">Hyderabad Based</span>
+      <span class="about-tag">All Website Platforms</span>
     </div>
   </div>
 
@@ -1582,8 +1549,8 @@ footer {
         <div class="about-title">Founder, Automation Intelligence</div>
       </div>
     </div>
-    <p>We build WhatsApp AI automation systems designed for businesses across India. Our focus is on helping businesses run more efficient operations without adding to their team's workload.</p>
-    <p>Every system we build is customised for your specific business — not a generic template. We stay with you as your automation partner, not just a one-time setup service.</p>
+    <p>We serve all business types — healthcare, retail, hospitality, real estate, education, and professional services. Every client gets a custom strategy built for their industry, location, and competition level.</p>
+    <p>Our process moves fast: deep audit in Week 1, technical foundation in Week 2, GBP optimization in Week 3, and content deployment from Week 4 onward. No third-party dependencies, no waiting on approvals.</p>
     <div class="msme-badge">
       <div class="icon">🏛️</div>
       <div>
@@ -1594,11 +1561,38 @@ footer {
   </div>
 </section>
 
+<!-- HIRING -->
+<section id="hiring">
+  <div class="section-label">Join the Founding Team</div>
+  <h2 class="section-title">Founding <span class="red">Full-Stack Engineer.</span></h2>
+  <p class="section-sub">We are looking for a founding engineer to architect and scale our new SaaS backend ecosystem from the ground up.</p>
+
+  <div class="hiring-card reveal">
+    <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 600; color: var(--bg); margin-bottom: 12px; letter-spacing: 0.5px;">About the Role</h3>
+    <p style="font-size: 14px; color: rgba(245,242,235,0.6); line-height: 1.8; margin-bottom: 8px;">
+      You will own the core infrastructure — designing the SaaS backend, managing API integrations, and handling cloud hosting. This includes managing CPU and GPU operations, user authorizations, and storage architecture for a high-growth startup.
+    </p>
+
+    <div class="hiring-tags">
+      <span class="hiring-tag">SaaS Backend</span>
+      <span class="hiring-tag">API Integrations</span>
+      <span class="hiring-tag">Cloud Hosting</span>
+      <span class="hiring-tag">CPU / GPU Ops</span>
+      <span class="hiring-tag">User Auth</span>
+      <span class="hiring-tag">Storage Architecture</span>
+    </div>
+
+    <a href="mailto:automationintelligence2109@gmail.com?subject=Application: Founding Full-Stack Engineer" class="btn-apply">
+      Apply via Email →
+    </a>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section id="contact">
   <div class="section-label">Immediate Engagement</div>
-  <h2 class="section-title">Optimize Your<br><span class="red">Operational Funnel.</span></h2>
-  <p class="section-sub">Stop wasting valuable transaction space on slow, disconnected customer handling systems. Book a free demo.</p>
+  <h2 class="section-title">Get Your <span class="red">Free PDF Audit.</span></h2>
+  <p class="section-sub">Submit your details below. We'll deliver a comprehensive PDF audit within 24 hours showing exactly why you're not ranking and how to fix it.</p>
 
   <div class="contact-grid">
     <div class="contact-info reveal">
@@ -1613,7 +1607,6 @@ footer {
         <div class="contact-icon">✉️</div>
         <div>
           <div class="contact-label">Email</div>
-          <!-- <div class="contact-value"><a href="mailto:info@automationintelligence.in">info@automationintelligence.in</a></div> -->
           <div class="contact-value"><a href="mailto:automationintelligence2109@gmail.com">automationintelligence2109@gmail.com</a></div>
         </div>
       </div>
@@ -1625,20 +1618,20 @@ footer {
         </div>
       </div>
       <div class="contact-item">
-        <div class="contact-icon">⏰</div>
+        <div class="contact-icon">🌐</div>
         <div>
-          <div class="contact-label">Response Time</div>
-          <div class="contact-value">Within 2 hours on WhatsApp</div>
+          <div class="contact-label">Service Area</div>
+          <div class="contact-value">All India (Hyderabad, Bangalore, Mumbai, Delhi, Chennai, Pune)</div>
         </div>
       </div>
     </div>
 
     <div class="contact-form reveal">
-      <h3>Book a Free Demo</h3>
-      <p>Fill this form and we'll reach out within 2 hours to schedule your demo.</p>
+      <h3>Request Free Audit</h3>
+      <p>Fill this form and we'll send your custom PDF audit within 24 hours.</p>
       <form id="demoForm">
         <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
-        <input type="hidden" name="subject" value="New Demo Request — Automation Intelligence">
+        <input type="hidden" name="subject" value="New Free SEO Audit Request — Automation Intelligence">
         <input type="hidden" name="from_name" value="Automation Intelligence Website">
         <input type="checkbox" name="botcheck" style="display:none">
 
@@ -1651,19 +1644,32 @@ footer {
           <input type="text" id="formBusiness" name="business" placeholder="Your Business Name" required>
         </div>
         <div class="form-group">
-          <label for="formEmail">Email Address *</label>
-          <input type="email" id="formEmail" name="email" placeholder="you@yourbusiness.com" required>
+          <label for="formUrl">Website URL *</label>
+          <input type="url" id="formUrl" name="website" placeholder="https://yourbusiness.com" required>
         </div>
         <div class="form-group">
-          <label for="formPhone">WhatsApp Number *</label>
+          <label for="formIndustry">Industry *</label>
+          <select id="formIndustry" name="industry" required>
+            <option value="">Select your industry</option>
+            <option value="Healthcare">Healthcare / Medical</option>
+            <option value="Retail">Retail</option>
+            <option value="Hospitality">Hospitality</option>
+            <option value="Real Estate">Real Estate</option>
+            <option value="Education">Education</option>
+            <option value="Professional Services">Professional Services</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="formCity">City *</label>
+          <input type="text" id="formCity" name="city" placeholder="e.g. Hyderabad" required>
+        </div>
+        <div class="form-group">
+          <label for="formPhone">Phone / WhatsApp *</label>
           <input type="tel" id="formPhone" name="phone" placeholder="+919876543210" required>
         </div>
-        <div class="form-group">
-          <label for="formMessage">Message (Optional)</label>
-          <textarea id="formMessage" name="message" placeholder="Tell us a bit about your business..."></textarea>
-        </div>
         <button type="submit" class="form-submit" id="submitBtn">
-          Submit Details →
+          Submit for Free Audit →
         </button>
         <div class="form-status" id="formStatus"></div>
       </form>
@@ -1675,11 +1681,16 @@ footer {
 <footer>
   <div class="footer-logo"><span class="red">Automation</span> <span class="brown">Intelligence</span></div>
   <div class="footer-links">
-    <a href="#services">Services</a>
-    <a href="#why">Advantage</a>
-    <a href="#about">About</a>
+    <a href="#services-seo">SEO & GBP</a>
+    <a href="#services-wa">WhatsApp Automation</a>
+    <a href="#case-study">Case Study</a>
     <a href="privacy-policy.html">Privacy</a>
     <a href="terms-of-service.html">Terms</a>
+  </div>
+  <div class="footer-social">
+    <a href="https://www.instagram.com/automationintelligence.in" target="_blank" aria-label="Instagram">
+      <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+    </a>
   </div>
   <div class="footer-copy">© <span id="currentYear"></span> Automation Intelligence · UDYAM-TS-02-0333374</div>
 </footer>
@@ -1744,19 +1755,23 @@ const formStatus = document.getElementById('formStatus');
 demoForm.addEventListener('submit', async function(e) {
   e.preventDefault();
 
-  document.querySelectorAll('.form-group input, .form-group textarea').forEach(el => el.classList.remove('error'));
+  document.querySelectorAll('.form-group input, .form-group select, .form-group textarea').forEach(el => el.classList.remove('error'));
   formStatus.className = 'form-status';
   formStatus.style.display = 'none';
 
   const name = document.getElementById('formName').value.trim();
   const business = document.getElementById('formBusiness').value.trim();
-  const email = document.getElementById('formEmail').value.trim();
+  const url = document.getElementById('formUrl').value.trim();
+  const industry = document.getElementById('formIndustry').value;
+  const city = document.getElementById('formCity').value.trim();
   const phone = document.getElementById('formPhone').value.trim();
 
   let hasError = false;
   if (!name) { document.getElementById('formName').classList.add('error'); hasError = true; }
   if (!business) { document.getElementById('formBusiness').classList.add('error'); hasError = true; }
-  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { document.getElementById('formEmail').classList.add('error'); hasError = true; }
+  if (!url) { document.getElementById('formUrl').classList.add('error'); hasError = true; }
+  if (!industry) { document.getElementById('formIndustry').classList.add('error'); hasError = true; }
+  if (!city) { document.getElementById('formCity').classList.add('error'); hasError = true; }
   if (!phone) { document.getElementById('formPhone').classList.add('error'); hasError = true; }
 
   if (hasError) {
@@ -1779,10 +1794,10 @@ demoForm.addEventListener('submit', async function(e) {
 
     if (result.success) {
       formStatus.className = 'form-status success';
-      formStatus.innerHTML = '✓ Thank you! Your demo request has been submitted. We\'ll reach out within 2 hours.';
+      formStatus.innerHTML = '✓ Thank you! We will review your site and send your comprehensive PDF audit within 24 hours.';
       formStatus.style.display = 'block';
       demoForm.reset();
-      showToast('Demo request submitted successfully!');
+      showToast('Audit request submitted successfully!');
     } else {
       throw new Error(result.message || 'Submission failed');
     }
@@ -1793,7 +1808,7 @@ demoForm.addEventListener('submit', async function(e) {
     showToast('Submission failed. Please try again.');
   } finally {
     submitBtn.disabled = false;
-    submitBtn.innerHTML = 'Submit Details →';
+    submitBtn.innerHTML = 'Submit for Free Audit →';
   }
 });
 
