@@ -68,7 +68,6 @@ Choose **monthly management** if you have several branches, you compete in a cro
 Send every agency the same information: your business type, number of locations, your area, your current profile link and what you want to achieve. Ask each one for a written scope and a sample report. Then compare what is included, not only the amount.
 
 
-TODO: add your own package names and price ranges here (delete this line once added). Posts containing TODO will not be published.
 
 ## Next step
 
